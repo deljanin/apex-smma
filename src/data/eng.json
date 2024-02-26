@@ -1,0 +1,101 @@
+{
+	"navbar": [
+		{ "text": "Home", "link": "#landing" },
+		{ "text": "Services", "link": "#services" },
+		{ "text": "About us", "link": "#about" },
+		{ "text": "Contact", "link": "#contact" }
+	],
+	"navbarAlt": [
+		{ "text": "Home", "link": "/" },
+		{ "text": "Privacy Policy", "link": "/privacy_policy" },
+		{ "text": "Terms and Conditions", "link": "/terms_and_conditions" }
+	],
+	"landing": {
+		"heading1": "<span class='powerText'>Elevate</span> your online presence",
+		"heading2": "Ready to take your business to the next level?<br/>Boost your brand by joining our digital marketing team.",
+		"buttonText": "Let's talk"
+	},
+	"howItWorks": {
+		"heading": "How it works",
+		"circles": [
+			{
+				"mainText": "Getting started",
+				"subText": "To start, we create or begin managing your existing social media accounts."
+			},
+			{
+				"mainText": "Campaigns",
+				"subText": "You get personalized and precisely tailored marketing campaigns that increase online traffic to your business based on extensive research."
+			},
+			{
+				"mainText": "Metrics",
+				"subText": "Using our software we track your social media metrics, gain insight and provide you with distilled results."
+			},
+			{
+				"mainText": "Results",
+				"subText": "With the help of our agency, surpass your competition and take your business to the next level."
+			}
+		]
+	},
+	"whatWeOffer": {
+		"heading": "What we offer",
+		"cards": [
+			{
+				"frontText": "Silver Plan",
+				"backText": "Do we have back text?"
+			},
+			{
+				"frontText": "Gold Plan",
+				"backText": "Do we have back text?"
+			},
+			{
+				"frontText": "Platinum Plan",
+				"backText": "Do we have back text?"
+			}
+		],
+		"offerings": [
+			{
+				"title": "Social media management",
+				"description": "LoremIpsum"
+			},
+			{
+				"title": "Email marketing",
+				"description": "LoremIpsum"
+			},
+			{
+				"title": "Google SEO",
+				"description": "LoremIpsum"
+			},
+			{
+				"title": "Content creation",
+				"description": "LoremIpsum"
+			},
+			{
+				"title": "Website design and development",
+				"description": "LoremIpsum"
+			},
+			{
+				"title": "Community management",
+				"description": "LoremIpsum"
+			}
+		]
+	},
+	"contact": {
+		"heading": "Contact us",
+		"inputs": {
+			"name": "First name",
+			"surname": "Last name",
+			"emai": "Email address",
+			"company": "Company name",
+			"plan": "Choose plan",
+			"website": "Website address",
+			"explanation": "How can we help?",
+			"submit": "Send message"
+		}
+	},
+	"footer": {
+		"input": "your@email.com",
+		"ppolicy": "Privacy Policy",
+		"terms": "Terms & Conditions",
+		"rights": "@2024 SMMA.TEAM All Right Reserved"
+	}
+}

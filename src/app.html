@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/Logo.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+		<style>
+			@font-face {
+				font-family: 'Coolvetica';
+				font-style: normal;
+				font-weight: 400;
+				src: url('/fonts/Coolvetica/coolvetica.ttf') format('truetype');
+			}
+			@font-face {
+				font-family: 'K2D';
+				font-style: normal;
+				font-weight: 400;
+				src: url('/fonts/K2D/K2D-Regular.ttf') format('truetype');
+			}
+			:root {
+				--primary-color: #101010;
+				--secondary-color: #ffffff;
+				--thirtary-color: rgba(255, 255, 255, 0.3);
+				--main-gradient: linear-gradient(
+					to right bottom,
+					#47deb1,
+					#00dbf0,
+					#00cfff,
+					#8db4ff,
+					#fa8cfa
+				);
+				--text-gradient: -webkit-linear-gradient(0deg, #47deb1, #fa8cfa);
+				color: var(--secondary-color);
+			}
+
+			/* If you want to change the theme, just adjust these variables */
+			/* .light-theme :root {
+				--primary-color: #ff6347;
+				--secondary-color: #008080;
+				--main-gradient: linear-gradient(
+					to right bottom,
+					#47deb1,
+					#00dbf0,
+					#00cfff,
+					#8db4ff,
+					#fa8cfa
+				);
+			} */
+			.powerText {
+				background: var(--text-gradient);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background-color: var(--primary-color);
+			}
+		</style>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
