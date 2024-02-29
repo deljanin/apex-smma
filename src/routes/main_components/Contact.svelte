@@ -1,1 +1,1 @@
-contact
+<div id="contact">contact</div>

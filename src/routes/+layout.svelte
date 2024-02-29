@@ -1,4 +1,5 @@
 <script>
+	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import logoDark from '$lib/assets/LogoDark.svg';
 	import langIcon from '$lib/assets/langIcon.svg';
 
@@ -31,11 +32,11 @@
 		<ul>
 			{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
 				{#each $txt.navbarAlt as link}
-					<li><a href={link.link}>{link.text}</a></li>
+					<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
 				{/each}
 			{:else}
 				{#each $txt.navbar as link}
-					<li><a href={link.link}>{link.text}</a></li>
+					<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
 				{/each}
 			{/if}
 		</ul>
@@ -47,8 +48,8 @@
 <style>
 	.navSticky {
 		position: fixed;
-		background-color: rgba(255, 255, 255, 0.4);
-		backdrop-filter: blur(20px);
+		background-color: var(--nav-transparent);
+		backdrop-filter: blur(15px);
 		transition: background-color 0.4s;
 		height: 70px;
 	}
@@ -80,8 +81,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: rgba(255, 255, 255, 0.4);
-		backdrop-filter: blur(20px);
+		background-color: var(--nav-transparent);
+		backdrop-filter: blur(15px);
 		transition: all 0.4s;
 	}
 	a > img {

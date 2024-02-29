@@ -1,4 +1,5 @@
 <script>
+	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import Dots from './dots.svelte';
 	import { txt } from '$lib/context.js';
 </script>
@@ -6,8 +7,9 @@
 <div id="landing">
 	<h1>{@html $txt.landing.heading1}</h1>
 	<h2>{@html $txt.landing.heading2}</h2>
-
-	<button>{$txt.landing.buttonText}</button>
+	<a href="#contact" on:click={handleAnchorClick}>
+		<button>{$txt.landing.buttonText}</button>
+	</a>
 	<div class="dots_wrapper">
 		<Dots />
 	</div>
@@ -30,11 +32,16 @@
 
 		color: var(--secondary-color);
 		text-align: center;
+		cursor: default;
+		user-select: none;
 	}
 
 	h2 {
 		font-size: 2.1em;
 		font-family: K2D;
+	}
+	a {
+		z-index: 2;
 	}
 	button {
 		border: none;

@@ -8,7 +8,7 @@
 	{#each $txt.howItWorks.circles as circle}
 		<div>
 			<h2>{circle.mainText}</h2>
-			<div class="circle"></div>
+			<div class="circles"></div>
 			<div class="vertical_line"></div>
 			<p>{circle.subText}</p>
 		</div>
@@ -38,7 +38,7 @@
 		width: 60vw;
 		height: 30vh;
 	}
-	.circle {
+	.circles {
 		height: 2em;
 		width: 2em;
 		border-radius: 100%;
