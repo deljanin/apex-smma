@@ -40,15 +40,15 @@
 		"heading": "What we offer",
 		"cards": [
 			{
-				"frontText": "Silver Plan",
+				"frontText": "<span class='powerText'>Silver Plan</span>",
 				"backText": "Do we have back text?"
 			},
 			{
-				"frontText": "Gold Plan",
+				"frontText": "<span class='powerText'>Gold Plan</span>",
 				"backText": "Do we have back text?"
 			},
 			{
-				"frontText": "Platinum Plan",
+				"frontText": "<span class='powerText'>Platinum Plan</span>",
 				"backText": "Do we have back text?"
 			}
 		],

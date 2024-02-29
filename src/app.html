@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/Logo.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Apex SMMA</title>
 		%sveltekit.head%
 		<style>
 			@font-face {
@@ -32,6 +33,16 @@
 				);
 				--text-gradient: -webkit-linear-gradient(0deg, #47deb1, #fa8cfa);
 				color: var(--secondary-color);
+				--shadow-gradient-top: linear-gradient(
+					180deg,
+					rgba(16, 16, 16, 1) 13%,
+					rgba(16, 16, 16, 0) 100%
+				);
+				--shadow-gradient-bottom: linear-gradient(
+					0deg,
+					rgba(16, 16, 16, 1) 13%,
+					rgba(16, 16, 16, 0) 100%
+				);
 			}
 
 			/* If you want to change the theme, just adjust these variables */
@@ -52,6 +63,11 @@
 				background-clip: text;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
+			}
+			h1 {
+				font-size: 6.3em;
+				font-family: Coolvetica;
+				letter-spacing: 3px;
 			}
 			*,
 			*::before,
