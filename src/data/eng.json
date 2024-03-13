@@ -2,7 +2,7 @@
 	"navbar": [
 		{ "text": "Home", "link": "#landing" },
 		{ "text": "Services", "link": "#services" },
-		{ "text": "About us", "link": "#about" },
+		{ "text": "Plans", "link": "#offers" },
 		{ "text": "Contact", "link": "#contact" }
 	],
 	"navbarAlt": [
@@ -40,42 +40,42 @@
 		"heading": "What we offer",
 		"cards": [
 			{
-				"frontText": "<span class='powerText'>Silver Plan</span>",
-				"backText": "Do we have back text?"
+				"frontText": "Silver Plan",
+				"backText": "Lay the groundwork for your online success with our essential services. Dive into effective social media management and targeted email marketing to kickstart your brand's digital journey."
 			},
 			{
-				"frontText": "<span class='powerText'>Gold Plan</span>",
-				"backText": "Do we have back text?"
+				"frontText": "Gold Plan",
+				"backText": "Elevate your brand's online presence with our diverse strategies. Alongside social media management and email marketing, boost your visibility with Google SEO and captivate your audience with engaging content tailored to their needs."
 			},
 			{
-				"frontText": "<span class='powerText'>Platinum Plan</span>",
-				"backText": "Do we have back text?"
+				"frontText": "Platinum Plan",
+				"backText": "Propel your brand to new heights with our premium package. Seamlessly integrate all aspects of your online presence with our fully customized website design and development, complemented by expert social media community management to foster lasting connections with your audience."
 			}
 		],
 		"offerings": [
 			{
 				"title": "Social media management",
-				"description": "LoremIpsum"
+				"description": "Elevate your online presence with expertly crafted content, strategic scheduling, and targeted engagement. Let us handle the complexities of social media while you focus on what matters most – growing your brand and connecting with your audience."
 			},
 			{
 				"title": "Email marketing",
-				"description": "LoremIpsum"
+				"description": "Drive customer engagement and boost conversions with personalized email campaigns tailored to your audience's preferences. From impactful subject lines to compelling content, we'll help you deliver messages that resonate and drive action."
 			},
 			{
 				"title": "Google SEO",
-				"description": "LoremIpsum"
+				"description": "Boost your online visibility and drive organic traffic to your website with our expert SEO services. From keyword optimization to technical audits, we'll help you climb the search rankings and attract more qualified leads."
 			},
 			{
 				"title": "Content creation",
-				"description": "LoremIpsum"
+				"description": "Stand out in a crowded digital landscape with our expertly crafted content. From engaging blog posts to captivating videos, we'll create compelling content that resonates with your audience and drives meaningful connections."
 			},
 			{
 				"title": "Website design and development",
-				"description": "LoremIpsum"
+				"description": "From concept to completion, our team will guide you through every step of the website design and development process. With a focus on creativity, functionality, and user experience, we'll create a website that reflects your brand and helps you achieve your business goals."
 			},
 			{
 				"title": "Community management",
-				"description": "LoremIpsum"
+				"description": "Take your brand's online presence to the next level with our comprehensive community management solutions. Our dedicated team will monitor conversations, respond to inquiries, and proactively engage with your audience to nurture relationships."
 			}
 		]
 	},

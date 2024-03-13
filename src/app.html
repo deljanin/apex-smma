@@ -43,6 +43,29 @@
 					rgba(16, 16, 16, 1) 13%,
 					rgba(16, 16, 16, 0) 100%
 				);
+				--transparent-primary: #0000004d;
+				--line-gradient: linear-gradient(
+					rgba(16, 16, 16, 1) 0%,
+					#bebebe 20%,
+					#bebebe 80%,
+					rgba(16, 16, 16, 1) 100%
+				);
+				--card-border: conic-gradient(
+					from 0deg at 50% 50%,
+					#919191 0%,
+					#101010 6%,
+					#101010 12%,
+					#919191 25%,
+					#101010 38%,
+					#101010 43%,
+					#919191 50%,
+					#101010 56%,
+					#101010 62%,
+					#919191 75%,
+					#101010 88%,
+					#101010 94%,
+					#919191 100%
+				);
 				color: var(--secondary-color);
 			}
 
@@ -68,7 +91,10 @@
 			h1 {
 				font-size: 6.3em;
 				font-family: Coolvetica;
-				letter-spacing: 3px;
+				letter-spacing: 2px;
+			}
+			a {
+				all: unset;
 			}
 			*,
 			*::before,

@@ -107,5 +107,11 @@
 		font-size: 1.8em;
 		color: var(--primary-color);
 		text-decoration: none;
+		cursor: pointer;
+		transition: color 0.4s;
+	}
+	li > a:hover {
+		color: var(--secondary-color);
+		transition: color 0.4s;
 	}
 </style>
