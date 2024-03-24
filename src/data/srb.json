@@ -1,43 +1,43 @@
 {
 	"navbar": [
-		{ "text": "Home", "link": "#landing" },
+		{ "text": "Početna", "link": "#landing" },
 		{ "text": "Usluge", "link": "#services" },
 		{ "text": "O nama", "link": "#about" },
 		{ "text": "Kontakt", "link": "#contact" }
 	],
 	"navbarAlt": [
-		{ "text": "Home", "link": "/" },
-		{ "text": "Politika privatnosti", "link": "/privacy_policy" },
+		{ "text": "Početna", "link": "/" },
+		{ "text": "Pravila o privatnosti", "link": "/privacy_policy" },
 		{ "text": "Uslovi korišćenja", "link": "/terms_and_conditions" }
 	],
 	"landing": {
-		"heading1": "<span class='powerText'>Uzdignite</span> svoju onlajnost",
-		"heading2": "Ready to take your business to the next level?<br/>Boost your brand by joining our digital marketing team.",
-		"buttonText": "Let's talk"
+		"heading1": "<span class='powerText'>Povećajte</span> vaš onlajn uticaj",
+		"heading2": "Spremni da podignete vaš biznis na sledeći nivo?<br/>Unapredite vaš brend uz našu pomoć.",
+		"buttonText": "Pišite nam"
 	},
 	"howItWorks": {
-		"heading": "How it works",
+		"heading": "Kako to radimo",
 		"circles": [
 			{
 				"mainText": "Početak",
-				"subText": "To start, we create or begin managing your existing social media accounts."
+				"subText": "Za početak, kreiramo ili vodimo vaše, već postojeće drustvene mreže."
 			},
 			{
-				"mainText": "Campaigns",
-				"subText": "You get personalized and precisely tailored marketing campaigns that increase online traffic to your business based on extensive research."
+				"mainText": "Kampanje",
+				"subText": "Dobijate personalizovane i precizno osmišljene marketing kampanje koje povećavaju onlajn saobraćaj ka vašem biznisu, zasnovane na detaljnom istraživanju."
 			},
 			{
-				"mainText": "Metrics",
-				"subText": "Using our software we track your social media metrics, gain insight and provide you with distilled results."
+				"mainText": "Metrika",
+				"subText": "Korišćenjem našeg softvera, pratimo metriku vaših društvenih mreža kako bi došli do uspešnih kampanja i najboljih rezultata.  "
 			},
 			{
-				"mainText": "Results",
-				"subText": "With the help of our agency, surpass your competition and take your business to the next level."
+				"mainText": "Rezultati",
+				"subText": "Uz pomoć naše agencije, prevazidjite sebe a i konkurenciju i dostignite vrh digitalnog marketinga uz zagarantovane rezultate. "
 			}
 		]
 	},
 	"whatWeOffer": {
-		"heading": "What we offer",
+		"heading": "Šta nudimo",
 		"cards": [
 			{
 				"frontText": "Srebrni Plan",
@@ -54,7 +54,7 @@
 		],
 		"offerings": [
 			{
-				"title": "Social media management",
+				"title": "Upravljanje društvenim mrežama",
 				"description": "LoremIpsum"
 			},
 			{
@@ -66,15 +66,15 @@
 				"description": "LoremIpsum"
 			},
 			{
-				"title": "Content creation",
+				"title": "Kreiranje kreativnog sadržaja",
 				"description": "LoremIpsum"
 			},
 			{
-				"title": "Website design and development",
+				"title": "Dizajn, izrada i održavanje sajta",
 				"description": "LoremIpsum"
 			},
 			{
-				"title": "Community management",
+				"title": "Interakcije sa vašim klijentima",
 				"description": "LoremIpsum"
 			}
 		]
