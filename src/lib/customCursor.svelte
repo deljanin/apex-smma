@@ -53,7 +53,7 @@
 		// Request the next frame to continue the animation
 		window.requestAnimationFrame(tick);
 	};
-	const speed = 0.1;
+	const speed = 0.4;
 
 	onMount(() => {
 		tick();

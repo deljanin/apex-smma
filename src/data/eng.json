@@ -81,16 +81,14 @@
 	},
 	"contact": {
 		"heading": "Contact us",
-		"inputs": {
-			"name": "First name",
-			"surname": "Last name",
-			"emai": "Email address",
-			"company": "Company name",
-			"plan": "Choose plan",
-			"website": "Website address",
-			"explanation": "How can we help?",
-			"submit": "Send message"
-		}
+		"name": { "key": "name", "placeholder": "First name" },
+		"surname": { "key": "surname", "placeholder": "Last name" },
+		"email": { "key": "email", "placeholder": "Email address" },
+		"company": { "key": "company", "placeholder": "Company name" },
+		"plan": { "key": "plan", "placeholder": "Choose plan", "defaultText": "Choose a plan" },
+		"website": { "key": "website", "placeholder": "Website address" },
+		"explanation": { "key": "explanation", "placeholder": "How can we help?" },
+		"submit": { "key": "submit", "placeholder": "Send message" }
 	},
 	"footer": {
 		"input": "your@email.com",

@@ -40,11 +40,11 @@
 		"heading": "What we offer",
 		"cards": [
 			{
-				"frontText": "asd Plan",
+				"frontText": "Srebrni Plan",
 				"backText": "Do we have back text?"
 			},
 			{
-				"frontText": "Gold Plan",
+				"frontText": "Zlatni Plan",
 				"backText": "Do we have back text?"
 			},
 			{
@@ -81,16 +81,14 @@
 	},
 	"contact": {
 		"heading": "Contact us",
-		"inputs": {
-			"name": "First name",
-			"surname": "Last name",
-			"emai": "Email address",
-			"company": "Company name",
-			"plan": "Choose plan",
-			"website": "Website address",
-			"explanation": "How can we help?",
-			"submit": "Send message"
-		}
+		"name": { "key": "name", "placeholder": "Ime" },
+		"surname": { "key": "surname", "placeholder": "Prezime" },
+		"email": { "key": "email", "placeholder": "Email addresa" },
+		"company": { "key": "company", "placeholder": "Naziv kompanije" },
+		"plan": { "key": "plan", "placeholder": "Izaberite plan", "defaultText": "Izaberite a plan" },
+		"website": { "key": "website", "placeholder": "Adresa vebsajta" },
+		"explanation": { "key": "explanation", "placeholder": "Kako možemo da Vam pomognemo?" },
+		"submit": { "key": "submit", "placeholder": "Pošalji poruku" }
 	},
 	"footer": {
 		"input": "your@email.com",

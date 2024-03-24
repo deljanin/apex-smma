@@ -102,6 +102,7 @@
 	li {
 		list-style: none;
 	}
+
 	li > a {
 		font-family: 'Coolvetica';
 		font-size: 1.8em;
