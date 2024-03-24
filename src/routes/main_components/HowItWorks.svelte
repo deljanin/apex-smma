@@ -9,7 +9,6 @@
 			for (let i = 0; i < spans[x].length; i++) {
 				if (spans[x][i].parentElement.getBoundingClientRect().top < window.innerHeight / 2) {
 					let { left, top } = spans[x][i].getBoundingClientRect();
-					console.log(top);
 					top = top - window.innerHeight * 0.5;
 					let opacityValue =
 						1 - (top * 0.02 + left * 0.001) < 0.3

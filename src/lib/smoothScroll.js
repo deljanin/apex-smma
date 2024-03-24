@@ -29,7 +29,6 @@ export function handleAnchorClickCenter(event) {
 
 	const anchorId = new URL(link.href).hash.replace('#', '');
 	const anchor = document.getElementById('plans');
-	console.log(anchor);
 	let offset = 0;
 	if (anchorId === 'gold-plan') {
 		offset = (70 * window.innerHeight) / 100;
