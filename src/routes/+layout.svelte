@@ -1,4 +1,7 @@
 <script>
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	injectSpeedInsights();
+
 	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import logoDark from '$lib/assets/LogoDark.svg';
 	import langIcon from '$lib/assets/langIcon.svg';
