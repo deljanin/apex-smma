@@ -19,54 +19,67 @@
 <div id="contact">
 	<h1>{$txt.contact.heading}</h1>
 	<form on:submit|preventDefault={submitForm}>
-		<input type="hidden" value="extraText" />
-		<label for={$txt.contact.name.key}>{$txt.contact.name.placeholder}</label>
-		<input
-			type="text"
-			name={$txt.contact.name.key}
-			placeholder={$txt.contact.name.placeholder}
-			required
-		/>
-		<label for={$txt.contact.surname.key}>{$txt.contact.surname.placeholder}</label>
-		<input
-			type="text"
-			name={$txt.contact.surname.key}
-			placeholder={$txt.contact.surname.placeholder}
-			required
-		/>
-		<label for={$txt.contact.email.key}>{$txt.contact.email.placeholder}</label>
-		<input
-			type="email"
-			name={$txt.contact.email.key}
-			placeholder={$txt.contact.email.placeholder}
-			required
-		/>
-		<label for={$txt.contact.company.key}>{$txt.contact.company.placeholder}</label>
-		<input
-			type="text"
-			name={$txt.contact.company.key}
-			placeholder={$txt.contact.company.placeholder}
-			required
-		/>
-		<label for={$txt.contact.plan.key}>{$txt.contact.plan.placeholder}</label>
-		<select type="text" name={$txt.contact.plan.key} placeholder={$txt.contact.plan.placeholder}>
-			<option value="" disabled selected>{$txt.contact.plan.defaultText}</option>
-			{#each $txt.whatWeOffer.cards as offer}
-				<option>{offer.frontText}</option>
-			{/each}
-		</select>
-		<label for={$txt.contact.website.key}>{$txt.contact.website.placeholder}</label>
-		<input
-			type="text"
-			name={$txt.contact.website.key}
-			placeholder={$txt.contact.website.placeholder}
-		/>
-		<label for={$txt.contact.explanation.key}>{$txt.contact.explanation.placeholder}</label>
-		<textarea
-			type="text"
-			name={$txt.contact.explanation.key}
-			placeholder={$txt.contact.explanation.placeholder}
-		/>
+		<input class="form__field" type="hidden" value="extraText" />
+
+		<div class="form__group field">
+			<input
+				class="form__field"
+				type="text"
+				name={$txt.contact.name.key}
+				placeholder={$txt.contact.name.placeholder}
+				required
+			/>
+			<label class="form__label" for={$txt.contact.name.key}>{$txt.contact.name.placeholder}</label>
+		</div>
+		<div class="form__group field">
+			<input
+				class="form__field"
+				type="text"
+				name={$txt.contact.surname.key}
+				placeholder={$txt.contact.surname.placeholder}
+				required
+			/>
+			<label class="form__label" for={$txt.contact.surname.key}
+				>{$txt.contact.surname.placeholder}</label
+			>
+		</div>
+		<div class="form__group field">
+			<input
+				class="form__field"
+				type="email"
+				name={$txt.contact.email.key}
+				placeholder={$txt.contact.email.placeholder}
+				required
+			/>
+			<label class="form__label" for={$txt.contact.email.key}
+				>{$txt.contact.email.placeholder}</label
+			>
+		</div>
+		<div class="form__group field">
+			<input
+				class="form__field"
+				type="text"
+				name={$txt.contact.company.key}
+				placeholder={$txt.contact.company.placeholder}
+				required
+			/>
+			<label class="form__label" for={$txt.contact.company.key}
+				>{$txt.contact.company.placeholder}</label
+			>
+		</div>
+
+		<div class="form__group field">
+			<input
+				class="form__field"
+				type="text"
+				name={$txt.contact.website.key}
+				placeholder={$txt.contact.website.placeholder}
+			/>
+			<label class="form__label" for={$txt.contact.website.key}
+				>{$txt.contact.website.placeholder}</label
+			>
+		</div>
+
 		<button type="submit">{$txt.contact.submit.placeholder}</button>
 	</form>
 	<div class="footer"></div>
@@ -80,8 +93,8 @@
 		overflow-x: hidden;
 	}
 	h1 {
-		padding-left: 10vw;
-		padding-top: 13vh;
+		padding-left: 12vw;
+		padding-top: 17vh;
 	}
 	img {
 		z-index: -1;
@@ -92,57 +105,92 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 4vh;
-		padding: 10vh 10vw;
+		padding: 8vh 10vw 10vh 12vw;
 		width: 60vw;
-	}
-	label {
-	}
-
-	input,
-	select,
-	textarea {
-		height: 5vh;
-		border-radius: 50px;
-		outline: none;
-		position: relative;
-		background-color: var(--primary-color);
-		color: var(--secondary-color);
-		border: 2px solid var(--tertiary-color);
-		text-indent: 15px;
-		font-family: K2D;
-	}
-	select {
-		text-indent: 10px;
-	}
-	input::placeholder,
-	textarea::placeholder {
-		position: absolute;
-		top: 50%;
-		/* left: 150px; */
-		transform: translateY(-50%);
 		font-family: K2D;
 	}
 
-	textarea {
-		grid-column: span 2;
-		width: 100%;
-		resize: none;
-		height: 8vh;
-	}
 	button {
-		width: 35%;
+		/* width: 35%; */
 		border-radius: 50px;
-		height: 4vh;
+		/* height: 5vh; */
 		border: none;
 		z-index: 2;
 		cursor: pointer;
 
 		font-family: Coolvetica;
-		font-size: 1.5em;
+		font-size: 2em;
 		color: var(--secondary-color);
 		border-radius: 100px;
 		padding: 0.5em 1.5em;
 		background-image: var(--text-gradient);
 		grid-column: span 2;
+		justify-self: left;
+		margin-top: 10px;
+	}
+	.form__group {
+		position: relative;
+		padding: 20px 0 0;
+		width: 100%;
+	}
+
+	.form__field {
+		background-color: var(--primary-color);
+		color: var(--secondary-color);
+		font-family: inherit;
+		width: 100%;
+		border: none;
+		border-bottom: 2px solid var(--tertiary-color);
+		outline: 0;
+		font-size: 2em;
+		padding: 7px 0;
+		transition: border-color 0.2s;
+	}
+
+	.form__field::placeholder {
+		color: transparent;
+	}
+
+	.form__field:placeholder-shown ~ .form__label {
+		font-size: 2em;
+		cursor: text;
+		top: 20px;
+	}
+
+	.form__label {
+		position: absolute;
+		top: 0;
+		display: block;
+		transition: 0.2s;
+		font-size: 1.5em;
+		color: var(--nav-transparent);
+		pointer-events: none;
+	}
+
+	.form__field:focus {
+		padding-bottom: 6px;
+		font-weight: 700;
+		border-width: 3px;
+		border-image: var(--text-gradient);
+		border-image-slice: 1;
+	}
+
+	.form__field:focus ~ .form__label {
+		position: absolute;
+		top: 0;
+		display: block;
+		transition: 0.2s;
+		font-size: 1.5em;
+		background: var(--text-gradient);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-weight: 700;
+	}
+
+	/* reset input */
+	.form__field:required,
+	.form__field:invalid {
+		box-shadow: none;
 	}
 </style>

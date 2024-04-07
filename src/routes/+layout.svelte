@@ -118,4 +118,17 @@
 		color: var(--secondary-color);
 		transition: color 0.4s;
 	}
+	@media only screen and (max-width: 399px) {
+	}
+	@media only screen and (max-width: 400px) and (max-width: 649px) {
+	}
+	@media only screen and (min-width: 650px) and (max-width: 991px) {
+	}
+	@media only screen and (min-width: 992px) and (max-width: 1137px) {
+	}
+	@media only screen and (min-width: 1138px) and (max-width: 1360px) {
+	}
+	/* CHECK THIS */
+	@media only screen and (min-width: 1361) {
+	}
 </style>

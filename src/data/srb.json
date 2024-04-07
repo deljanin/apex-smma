@@ -85,9 +85,7 @@
 		"surname": { "key": "surname", "placeholder": "Prezime" },
 		"email": { "key": "email", "placeholder": "Email addresa" },
 		"company": { "key": "company", "placeholder": "Naziv kompanije" },
-		"plan": { "key": "plan", "placeholder": "Izaberite plan", "defaultText": "Izaberite a plan" },
 		"website": { "key": "website", "placeholder": "Adresa vebsajta" },
-		"explanation": { "key": "explanation", "placeholder": "Kako možemo da Vam pomognemo?" },
 		"submit": { "key": "submit", "placeholder": "Pošalji poruku" }
 	},
 	"footer": {
