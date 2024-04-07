@@ -37,17 +37,20 @@
 		5: CommunityManagement
 	};
 
-	$: openDescriptions = {
-		'plan-group0': false,
-		'plan-group1': false,
-		'plan-group2': false,
-		'plan-group3': false,
-		'plan-group4': false,
-		'plan-group5': false
-	};
+	$: descriptions = [];
+	$: for (let i = 0; i < Object.keys($txt.whatWeOffer.offerings).length; i++) {
+		descriptions[i] = false;
+	}
+	$: openDescription = null;
 
 	function showDescription(id) {
-		openDescriptions[id] = !openDescriptions[id];
+		if (openDescription !== id) {
+			descriptions[openDescription] = false;
+			descriptions[id] = true;
+			openDescription = id;
+		} else {
+			descriptions[openDescription] = !descriptions[openDescription];
+		}
 	}
 </script>
 
@@ -66,12 +69,12 @@
 	</div>
 	<div class="plans-static">
 		{#each $txt.whatWeOffer.offerings as offer, i}
-			<div id={`plan-group${i}`} on:click={() => showDescription(`plan-group${i}`)}>
+			<div id={`plan-group${i}`} on:click={() => showDescription(i)}>
 				<div>
 					<img src={offerIcons[i]} alt={offer.title} />
 					<h2>{offer.title}</h2>
 				</div>
-				{#if openDescriptions[`plan-group${i}`]}
+				{#if descriptions[i]}
 					<p transition:slide>{offer.description}</p>
 				{/if}
 			</div>

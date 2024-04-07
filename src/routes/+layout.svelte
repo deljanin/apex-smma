@@ -52,7 +52,7 @@
 	.navSticky {
 		position: fixed;
 		background-color: var(--nav-transparent);
-		backdrop-filter: blur(15px);
+		backdrop-filter: blur(12px);
 		transition: background-color 0.4s;
 		height: 70px;
 	}

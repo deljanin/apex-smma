@@ -20,41 +20,48 @@
 	<h1>{$txt.contact.heading}</h1>
 	<form on:submit|preventDefault={submitForm}>
 		<input type="hidden" value="extraText" />
+		<label for={$txt.contact.name.key}>{$txt.contact.name.placeholder}</label>
 		<input
 			type="text"
 			name={$txt.contact.name.key}
 			placeholder={$txt.contact.name.placeholder}
 			required
 		/>
+		<label for={$txt.contact.surname.key}>{$txt.contact.surname.placeholder}</label>
 		<input
 			type="text"
 			name={$txt.contact.surname.key}
 			placeholder={$txt.contact.surname.placeholder}
 			required
 		/>
+		<label for={$txt.contact.email.key}>{$txt.contact.email.placeholder}</label>
 		<input
 			type="email"
 			name={$txt.contact.email.key}
 			placeholder={$txt.contact.email.placeholder}
 			required
 		/>
+		<label for={$txt.contact.company.key}>{$txt.contact.company.placeholder}</label>
 		<input
 			type="text"
 			name={$txt.contact.company.key}
 			placeholder={$txt.contact.company.placeholder}
 			required
 		/>
+		<label for={$txt.contact.plan.key}>{$txt.contact.plan.placeholder}</label>
 		<select type="text" name={$txt.contact.plan.key} placeholder={$txt.contact.plan.placeholder}>
 			<option value="" disabled selected>{$txt.contact.plan.defaultText}</option>
 			{#each $txt.whatWeOffer.cards as offer}
 				<option>{offer.frontText}</option>
 			{/each}
 		</select>
+		<label for={$txt.contact.website.key}>{$txt.contact.website.placeholder}</label>
 		<input
 			type="text"
 			name={$txt.contact.website.key}
 			placeholder={$txt.contact.website.placeholder}
 		/>
+		<label for={$txt.contact.explanation.key}>{$txt.contact.explanation.placeholder}</label>
 		<textarea
 			type="text"
 			name={$txt.contact.explanation.key}
@@ -88,6 +95,8 @@
 		padding: 10vh 10vw;
 		width: 60vw;
 	}
+	label {
+	}
 
 	input,
 	select,
@@ -98,7 +107,7 @@
 		position: relative;
 		background-color: var(--primary-color);
 		color: var(--secondary-color);
-		border: 2px solid var(--thirtary-color);
+		border: 2px solid var(--tertiary-color);
 		text-indent: 15px;
 		font-family: K2D;
 	}
