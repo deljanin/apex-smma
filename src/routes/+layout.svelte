@@ -5,11 +5,6 @@
 	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import logoDark from '$lib/assets/icons/LogoDark.svg';
 	import langIcon from '$lib/assets/icons/langIconDark.svg';
-	import XIcon from '$lib/assets/icons/socials/X.svg';
-	import TelegramIcon from '$lib/assets/icons/socials/Telegram.svg';
-	import InstagramIcon from '$lib/assets/icons/socials/Instagram.svg';
-	import FacebookIcon from '$lib/assets/icons/socials/Facebook.svg';
-	import LinkedInIcon from '$lib/assets/icons/socials/LinkedIn.svg';
 
 	import { languageData } from '$lib/languageData.js';
 
@@ -27,14 +22,6 @@
 	} else {
 		navSticky = 'navSticky';
 	}
-
-	const icons = [
-		{ path: InstagramIcon, link: 'https://instagram.com/apex-smma', alt: 'Instagram icon' },
-		{ path: TelegramIcon, link: '/', alt: 'Telegram icon' },
-		{ path: FacebookIcon, link: '/', alt: 'Facebook icon' },
-		{ path: LinkedInIcon, link: '/', alt: 'LinkedIn icon' },
-		{ path: XIcon, link: '/', alt: 'X icon' }
-	];
 </script>
 
 <svelte:window bind:scrollY={y} />
@@ -44,6 +31,7 @@
 		<a href="/">
 			<img src={logoDark} alt="Logo" />
 		</a>
+
 		<ul>
 			{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
 				{#each $txt.navbarAlt as link}
@@ -59,25 +47,6 @@
 	</div>
 </nav>
 <slot />
-
-<div class="footer">
-	<div>
-		<div>
-			<div>{$txt.footer.ppolicy}</div>
-			<div>{$txt.footer.terms}</div>
-		</div>
-		<div>
-			{#each icons as icon}
-				<a href={icon.link} target="_blank">
-					<img src={icon.path} alt={icon.alt} />
-				</a>
-			{/each}
-		</div>
-		<div>
-			{$txt.footer.rights}
-		</div>
-	</div>
-</div>
 
 <style>
 	.navSticky {
@@ -105,7 +74,7 @@
 		align-items: center;
 		transition: all 0.4s;
 	}
-	nav div {
+	div {
 		position: absolute;
 		top: 25px;
 		padding: 20px;
@@ -138,7 +107,8 @@
 	}
 
 	li > a {
-		font-family: 'Raleway';
+		font-family: K2D;
+		font-weight: bold;
 		font-size: clamp(0.5rem, 1rem + 1vw, 1.8em);
 		color: var(--primary-color);
 		text-decoration: none;
@@ -149,36 +119,6 @@
 		color: var(--secondary-color);
 		transition: color 0.4s;
 	}
-	.footer {
-		position: relative;
-		width: 100%;
-		height: 0;
-		font-family: K2D;
-	}
-	.footer > div {
-		width: 80%;
-		height: 10vh;
-		position: absolute;
-		bottom: 25px;
-		left: 0;
-		right: 0;
-		margin: 0 auto 0 auto;
-		border: 1px solid var(--nav-transparent);
-		text-align: center;
-		border-radius: 25px;
-		text-align: center;
-		background-color: var(--transparent-primary);
-		backdrop-filter: blur(10px);
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-	}
-	.footer img {
-		height: auto;
-		width: 3rem;
-	}
-
-	/* DO 320 Treba ici */
 	@media only screen and (max-width: 399px) {
 	}
 	@media only screen and (max-width: 400px) and (max-width: 649px) {
