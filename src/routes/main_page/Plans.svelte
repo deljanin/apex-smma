@@ -69,7 +69,7 @@
 	</div>
 	<div class="plans-static">
 		{#each $txt.whatWeOffer.offerings as offer, i}
-			<div id={`plan-group${i}`} on:click={() => showDescription(i)}>
+			<button id={`plan-group${i}`} on:click={() => showDescription(i)}>
 				<div>
 					<img src={offerIcons[i]} alt={offer.title} />
 					<h2>{offer.title}</h2>
@@ -77,7 +77,7 @@
 				{#if descriptions[i]}
 					<p transition:slide>{offer.description}</p>
 				{/if}
-			</div>
+			</button>
 		{/each}
 	</div>
 </div>
@@ -133,12 +133,12 @@
 		flex-direction: column;
 		gap: 2vh;
 	}
-	.plans-static > div {
+	.plans-static > button {
 		width: 30vw;
 		cursor: pointer;
 		user-select: none;
 	}
-	.plans-static > div div {
+	.plans-static > button div {
 		display: flex;
 		align-items: center;
 		justify-content: baseline;
@@ -178,7 +178,7 @@
 	}
 	span {
 		font-family: Raleway;
-		font-size: 2.5em;
+		font-size: 2rem;
 		display: block;
 	}
 	.plan-circle img {

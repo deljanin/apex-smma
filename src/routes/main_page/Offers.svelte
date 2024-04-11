@@ -20,7 +20,7 @@
 <div id="offers">
 	<h1>{$txt.whatWeOffer.heading}</h1>
 	<div class="cards">
-		{#each $txt.whatWeOffer.cards as card, i (card)}
+		{#each $txt.whatWeOffer.cards as card, i}
 			<div class="group">
 				<div class={`vertical-line l${i}`}></div>
 				<a href={links[i]} on:click={handleAnchorClickCenter}>
@@ -58,7 +58,7 @@
 	}
 
 	.card {
-		padding: 14vh 4vw;
+		padding: 15vh 4vw;
 		border-style: solid;
 		border-width: 1px;
 		border-image: var(--card-border) 30;
@@ -84,7 +84,7 @@
 	}
 	.frontText {
 		font-family: Raleway;
-		font-size: 2.5em;
+		font-size: 1.8rem;
 		display: block;
 	}
 	.backText {

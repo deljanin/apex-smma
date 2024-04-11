@@ -2,6 +2,8 @@
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	injectSpeedInsights();
 
+	import { slide } from 'svelte/transition';
+
 	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import logoDark from '$lib/assets/icons/LogoDark.svg';
 	import langIcon from '$lib/assets/icons/langIconDark.svg';
@@ -27,32 +29,62 @@
 	} else {
 		navSticky = 'navSticky';
 	}
+
+	let toggleMenu = false;
+	let toggleBorder = false;
+	let innerWidth;
+	$: if (innerWidth > 700) {
+		toggleMenu = true;
+	} else {
+		toggleMenu = false;
+	}
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={y} bind:innerWidth />
 
 <nav class={navSticky}>
-	<div>
+	<div class:toggleBorder>
 		<a href="/">
 			<img src={logoDark} alt="Logo" />
 		</a>
-
-		<ul>
-			{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
-				{#each $txt.navbarAlt as link}
-					<li><a href={link.link}>{link.text}</a></li>
-				{/each}
-			{:else}
-				{#each $txt.navbar as link}
-					<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
-				{/each}
+		{#if toggleMenu}
+			<ul transition:slide>
+				{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
+					{#each $txt.navbarAlt as link}
+						<li><a href={link.link}>{link.text}</a></li>
+					{/each}
+				{:else}
+					{#each $txt.navbar as link}
+						<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
+					{/each}
+				{/if}
+			</ul>
+		{/if}
+		<div>
+			<button on:click={handleLanguageChange}>
+				<img src={langIcon} alt="Language change button" />
+			</button>
+			{#if innerWidth < 700}
+				<div class="menuButton">
+					<input
+						type="checkbox"
+						id="checkbox"
+						on:click={() => {
+							toggleMenu = !toggleMenu;
+							toggleBorder = !toggleBorder;
+						}}
+					/>
+					<label for="checkbox" class="toggle">
+						<div class="bar bar--top"></div>
+						<div class="bar bar--middle"></div>
+						<div class="bar bar--bottom"></div>
+					</label>
+				</div>
 			{/if}
-		</ul>
-		<img src={langIcon} on:click={handleLanguageChange} alt="Language change button" />
+		</div>
 	</div>
 </nav>
 <slot />
-
 <div class="footer">
 	<div>
 		<div>
@@ -62,10 +94,8 @@
 			<LinkedInIcon />
 			<XIcon />
 		</div>
-
 		<a href="/privacy_policy">{$txt.footer.ppolicy}</a>
 		<a href="/terms_and_conditions">{$txt.footer.terms}</a>
-
 		<div>
 			{$txt.footer.rights}
 		</div>
@@ -98,7 +128,7 @@
 		align-items: center;
 		transition: all 0.4s;
 	}
-	div {
+	nav > div {
 		position: absolute;
 		top: 25px;
 		padding: 20px;
@@ -143,6 +173,26 @@
 		color: var(--secondary-color);
 		transition: color 0.4s;
 	}
+	nav button {
+		height: 50px;
+	}
+	nav > div > div {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+	}
+
+	.toggleMenu {
+		display: none;
+	}
+	.toggleBorder {
+		border-bottom-right-radius: 0;
+	}
+
+	.menuButton {
+		display: none;
+	}
+
 	.footer {
 		position: relative;
 		width: 100%;
@@ -169,13 +219,92 @@
 		justify-content: space-evenly;
 	}
 
-	/* DO 320 Treba ici */
-	@media only screen and (max-width: 399px) {
+	/* Toggle styles */
+	#checkbox {
+		display: none;
 	}
-	@media only screen and (max-width: 400px) and (max-width: 649px) {
+
+	.toggle {
+		position: relative;
+		width: 40px;
+		cursor: pointer;
+		margin: auto;
+		display: block;
+		height: calc(4px * 3 + 11px * 2);
 	}
-	@media only screen and (min-width: 320px) and (max-width: 679px) {
-		div {
+
+	.bar {
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 4px;
+		border-radius: calc(4px / 2);
+		background: var(--main-gradient);
+		color: inherit;
+		opacity: 1;
+		transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
+	}
+
+	/***** Spin Animation *****/
+
+	.bar--top {
+		bottom: calc(50% + 11px + 4px / 2);
+		transition-property: bottom, transform;
+		transition-delay: calc(0s + 0.35s), 0s;
+	}
+
+	.bar--middle {
+		top: calc(50% - 4px / 2);
+		transition-property: opacity;
+		transition-delay: calc(0s + 0.35s);
+	}
+
+	.bar--bottom {
+		top: calc(50% + 11px + 4px / 2);
+		transition-property: top, transform;
+		transition-delay: calc(0s + 0.35s), 0s;
+	}
+
+	#checkbox:checked + .toggle .bar--top {
+		bottom: calc(50% - 4px / 2);
+		transform: rotate(135deg);
+		transition-delay: 0s, calc(0s + 0.35s);
+	}
+
+	#checkbox:checked + .toggle .bar--middle {
+		opacity: 0;
+		transition-duration: 0s;
+		transition-delay: calc(0s + 0.35s);
+	}
+
+	#checkbox:checked + .toggle .bar--bottom {
+		top: calc(50% - 4px / 2);
+		transform: rotate(225deg);
+		transition-delay: 0s, calc(0s + 0.35s);
+	}
+	/* Navbar only! */
+	@media only screen and (max-width: 700px) {
+		ul {
+			position: absolute;
+			right: 0;
+			max-width: 30vw;
+			bottom: -30vh;
+			height: 30vh;
+			background-color: var(--nav-transparent);
+			display: flex;
+			flex-direction: column;
+			border-bottom-left-radius: 25px;
+			border-bottom-right-radius: 25px;
+		}
+
+		.menuButton {
+			display: block;
+		}
+	}
+
+	/* MIN 320 */
+	@media only screen and (max-width: 679px) {
+		nav > div {
 			width: 90%;
 			height: 60px;
 		}
@@ -185,7 +314,7 @@
 		}
 	}
 	@media only screen and (min-width: 680px) and (max-width: 1139px) {
-		div {
+		nav > div {
 			width: 85%;
 		}
 	}

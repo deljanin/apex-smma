@@ -63,10 +63,13 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-	@media only screen and (min-width: 320px) and (max-width: 679px) {
+	@media only screen and (max-width: 679px) {
+		#landing {
+			overflow-x: hidden;
+		}
 		.dots_wrapper {
 			width: 800px;
-			overflow: hidden;
+
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
