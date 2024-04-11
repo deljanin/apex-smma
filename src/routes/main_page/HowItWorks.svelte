@@ -3,25 +3,25 @@
 	import { txt } from '$lib/context.js';
 	import background from '$lib/assets/howItWorksBg.svg';
 
-	let spans = [[], [], [], []];
-	function animateTextOnScroll() {
-		for (let x = 0; x < spans.length; x++)
-			for (let i = 0; i < spans[x].length; i++) {
-				if (spans[x][i].parentElement.getBoundingClientRect().top < window.innerHeight / 2) {
-					let { left, top } = spans[x][i].getBoundingClientRect();
-					top = top - window.innerHeight * 0.5;
-					let opacityValue =
-						1 - (top * 0.02 + left * 0.001) < 0.3
-							? 0.3
-							: 1 - (top * 0.02 + left * 0.001).toFixed(3);
-					opacityValue = opacityValue > 1 ? 1 : opacityValue.toFixed(3);
-					spans[x][i].style.opacity = opacityValue;
-				}
-			}
-	}
+	// let spans = [[], [], [], []];
+	// function animateTextOnScroll() {
+	// 	for (let x = 0; x < spans.length; x++)
+	// 		for (let i = 0; i < spans[x].length; i++) {
+	// 			if (spans[x][i].parentElement.getBoundingClientRect().top < window.innerHeight / 2) {
+	// 				let { left, top } = spans[x][i].getBoundingClientRect();
+	// 				top = top - window.innerHeight * 0.5;
+	// 				let opacityValue =
+	// 					1 - (top * 0.02 + left * 0.001) < 0.3
+	// 						? 0.3
+	// 						: 1 - (top * 0.02 + left * 0.001).toFixed(3);
+	// 				opacityValue = opacityValue > 1 ? 1 : opacityValue.toFixed(3);
+	// 				spans[x][i].style.opacity = opacityValue;
+	// 			}
+	// 		}
+	// }
 </script>
 
-<svelte:window on:scroll={animateTextOnScroll} />
+<!-- <svelte:window on:scroll={animateTextOnScroll} /> -->
 <div id="services">
 	<h1>{$txt.howItWorks.heading}</h1>
 	{#each $txt.howItWorks.circles as circle, i}
@@ -30,9 +30,7 @@
 			<div class="circles"></div>
 			<div class="vertical_line"></div>
 			<p>
-				{#each circle.subText as char, j}
-					<span bind:this={spans[i][j]} class="char">{char}</span>
-				{/each}
+				{circle.subText}
 			</p>
 		</div>
 	{/each}

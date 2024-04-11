@@ -56,8 +56,8 @@
 		filter: blur(4px);
 		z-index: 0;
 		position: absolute;
-		top: 8%;
-		max-width: 40em;
+		top: 5%;
+		max-width: 50em;
 		left: 0;
 		right: 0;
 		margin-left: auto;

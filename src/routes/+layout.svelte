@@ -5,11 +5,11 @@
 	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import logoDark from '$lib/assets/icons/LogoDark.svg';
 	import langIcon from '$lib/assets/icons/langIconDark.svg';
-	import XIcon from '$lib/assets/icons/socials/X.svg';
-	import TelegramIcon from '$lib/assets/icons/socials/Telegram.svg';
-	import InstagramIcon from '$lib/assets/icons/socials/Instagram.svg';
-	import FacebookIcon from '$lib/assets/icons/socials/Facebook.svg';
-	import LinkedInIcon from '$lib/assets/icons/socials/LinkedIn.svg';
+	import XIcon from '$lib/socials/X.svelte';
+	import TelegramIcon from '$lib/socials/Telegram.svelte';
+	import InstagramIcon from '$lib/socials/Instagram.svelte';
+	import FacebookIcon from '$lib/socials/Facebook.svelte';
+	import LinkedInIcon from '$lib/socials/LinkedIn.svelte';
 
 	import { languageData } from '$lib/languageData.js';
 
@@ -27,14 +27,6 @@
 	} else {
 		navSticky = 'navSticky';
 	}
-
-	const icons = [
-		{ path: InstagramIcon, link: 'https://instagram.com/apex-smma', alt: 'Instagram icon' },
-		{ path: TelegramIcon, link: '/', alt: 'Telegram icon' },
-		{ path: FacebookIcon, link: '/', alt: 'Facebook icon' },
-		{ path: LinkedInIcon, link: '/', alt: 'LinkedIn icon' },
-		{ path: XIcon, link: '/', alt: 'X icon' }
-	];
 </script>
 
 <svelte:window bind:scrollY={y} />
@@ -47,7 +39,7 @@
 		<ul>
 			{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
 				{#each $txt.navbarAlt as link}
-					<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
+					<li><a href={link.link}>{link.text}</a></li>
 				{/each}
 			{:else}
 				{#each $txt.navbar as link}
@@ -63,16 +55,16 @@
 <div class="footer">
 	<div>
 		<div>
-			<div>{$txt.footer.ppolicy}</div>
-			<div>{$txt.footer.terms}</div>
+			<InstagramIcon />
+			<TelegramIcon />
+			<FacebookIcon />
+			<LinkedInIcon />
+			<XIcon />
 		</div>
-		<div>
-			{#each icons as icon}
-				<a href={icon.link} target="_blank">
-					<img src={icon.path} alt={icon.alt} />
-				</a>
-			{/each}
-		</div>
+
+		<a href="/privacy_policy">{$txt.footer.ppolicy}</a>
+		<a href="/terms_and_conditions">{$txt.footer.terms}</a>
+
 		<div>
 			{$txt.footer.rights}
 		</div>
@@ -119,11 +111,11 @@
 		backdrop-filter: blur(15px);
 		transition: all 0.4s;
 	}
-	a > img {
+	nav a > img {
 		width: 60px;
 		height: auto;
 	}
-	img {
+	nav img {
 		cursor: pointer;
 		width: 50px;
 	}
@@ -154,6 +146,7 @@
 		width: 100%;
 		height: 0;
 		font-family: K2D;
+		font-size: 1rem;
 	}
 	.footer > div {
 		width: 80%;
@@ -171,11 +164,7 @@
 		backdrop-filter: blur(10px);
 		display: flex;
 		align-items: center;
-		justify-content: space-around;
-	}
-	.footer img {
-		height: auto;
-		width: 3rem;
+		justify-content: space-evenly;
 	}
 
 	/* DO 320 Treba ici */
