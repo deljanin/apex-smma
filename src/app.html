@@ -8,17 +8,18 @@
 		%sveltekit.head%
 		<style>
 			@font-face {
-				font-family: 'Coolvetica';
-				font-style: normal;
-				font-weight: 400;
-				src: url('/fonts/Coolvetica/coolvetica.ttf') format('truetype');
-			}
-			@font-face {
 				font-family: 'K2D';
 				font-style: normal;
 				font-weight: 400;
 				src: url('/fonts/K2D/K2D-Regular.ttf') format('truetype');
 			}
+			@font-face {
+				font-family: 'Raleway';
+				font-style: normal;
+				font-weight: 400;
+				src: url('/fonts/Raleway/Raleway-v4020-Black.otf') format('opentype');
+			}
+
 			:root {
 				--primary-color: #101010;
 				--secondary-color: #ffffff;
@@ -93,9 +94,13 @@
 				scroll-behavior: cubic-bezier(0.1, 0.7, 1, 0.1);
 			}
 			h1 {
-				font-size: 6.3em;
-				font-family: Coolvetica;
-				letter-spacing: 2px;
+				font-size: clamp(1rem, 1rem + 4.5vw, 6.3rem);
+				font-family: Raleway;
+				letter-spacing: -2px;
+			}
+			h2 {
+				font-size: clamp(0.5rem, 1rem + 1vw, 2.5rem);
+				font-family: K2D;
 			}
 			a {
 				all: unset;

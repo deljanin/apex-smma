@@ -107,8 +107,8 @@
 	}
 
 	li > a {
-		font-family: 'Coolvetica';
-		font-size: 1.8em;
+		font-family: 'Raleway';
+		font-size: clamp(0.5rem, 1rem + 1vw, 1.8em);
 		color: var(--primary-color);
 		text-decoration: none;
 		cursor: pointer;
@@ -122,11 +122,22 @@
 	}
 	@media only screen and (max-width: 400px) and (max-width: 649px) {
 	}
-	@media only screen and (min-width: 650px) and (max-width: 991px) {
+	@media only screen and (min-width: 320px) and (max-width: 679px) {
+		div {
+			width: 90%;
+			height: 60px;
+		}
+
+		a > img {
+			width: 45px;
+		}
 	}
-	@media only screen and (min-width: 992px) and (max-width: 1137px) {
+	@media only screen and (min-width: 680px) and (max-width: 1139px) {
+		div {
+			width: 85%;
+		}
 	}
-	@media only screen and (min-width: 1138px) and (max-width: 1360px) {
+	@media only screen and (min-width: 1140px) and (max-width: 1360px) {
 	}
 	/* CHECK THIS */
 	@media only screen and (min-width: 1361) {
