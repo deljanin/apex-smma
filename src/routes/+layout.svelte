@@ -5,6 +5,11 @@
 	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import logoDark from '$lib/assets/icons/LogoDark.svg';
 	import langIcon from '$lib/assets/icons/langIconDark.svg';
+	import XIcon from '$lib/socials/X.svelte';
+	import TelegramIcon from '$lib/socials/Telegram.svelte';
+	import InstagramIcon from '$lib/socials/Instagram.svelte';
+	import FacebookIcon from '$lib/socials/Facebook.svelte';
+	import LinkedInIcon from '$lib/socials/LinkedIn.svelte';
 
 	import { languageData } from '$lib/languageData.js';
 
@@ -35,7 +40,7 @@
 		<ul>
 			{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
 				{#each $txt.navbarAlt as link}
-					<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
+					<li><a href={link.link}>{link.text}</a></li>
 				{/each}
 			{:else}
 				{#each $txt.navbar as link}
@@ -47,6 +52,25 @@
 	</div>
 </nav>
 <slot />
+
+<div class="footer">
+	<div>
+		<div>
+			<InstagramIcon />
+			<TelegramIcon />
+			<FacebookIcon />
+			<LinkedInIcon />
+			<XIcon />
+		</div>
+
+		<a href="/privacy_policy">{$txt.footer.ppolicy}</a>
+		<a href="/terms_and_conditions">{$txt.footer.terms}</a>
+
+		<div>
+			{$txt.footer.rights}
+		</div>
+	</div>
+</div>
 
 <style>
 	.navSticky {
@@ -88,11 +112,11 @@
 		backdrop-filter: blur(15px);
 		transition: all 0.4s;
 	}
-	a > img {
+	nav a > img {
 		width: 60px;
 		height: auto;
 	}
-	img {
+	nav img {
 		cursor: pointer;
 		width: 50px;
 	}
@@ -119,6 +143,33 @@
 		color: var(--secondary-color);
 		transition: color 0.4s;
 	}
+	.footer {
+		position: relative;
+		width: 100%;
+		height: 0;
+		font-family: K2D;
+		font-size: 1rem;
+	}
+	.footer > div {
+		width: 80%;
+		height: 10vh;
+		position: absolute;
+		bottom: 25px;
+		left: 0;
+		right: 0;
+		margin: 0 auto 0 auto;
+		border: 1px solid var(--nav-transparent);
+		text-align: center;
+		border-radius: 25px;
+		text-align: center;
+		background-color: var(--transparent-primary);
+		backdrop-filter: blur(10px);
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	/* DO 320 Treba ici */
 	@media only screen and (max-width: 399px) {
 	}
 	@media only screen and (max-width: 400px) and (max-width: 649px) {
