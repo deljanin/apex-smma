@@ -1,17 +1,17 @@
 <script>
 	import { slide } from 'svelte/transition';
-
 	import { txt } from '$lib/context.js';
-	import SilverPlanIcon from '$lib/assets/SilverPlanIcon.svg';
-	import GoldPlanIcon from '$lib/assets/GoldPlanIcon.svg';
-	import PlatinumPlanIcon from '$lib/assets/PlatinumPlanIcon.svg';
 
-	import SocialMediaManagement from '$lib/assets/SocialManagement.svg';
-	import EmailMarketing from '$lib/assets/EmailMarketing.svg';
-	import SEO from '$lib/assets/SEO.svg';
-	import ContentCreation from '$lib/assets/ContentCreation.svg';
-	import WebDev from '$lib/assets/WebDev.svg';
-	import CommunityManagement from '$lib/assets/CommunityManagement.svg';
+	import SilverPlanIcon from '$lib/assets/icons/SilverPlanIcon.svg';
+	import GoldPlanIcon from '$lib/assets/icons/GoldPlanIcon.svg';
+	import PlatinumPlanIcon from '$lib/assets/icons/PlatinumPlanIcon.svg';
+
+	import SocialMediaManagement from '$lib/assets/icons/SocialManagement.svg';
+	import EmailMarketing from '$lib/assets/icons/EmailMarketing.svg';
+	import SEO from '$lib/assets/icons/SEO.svg';
+	import ContentCreation from '$lib/assets/icons/ContentCreation.svg';
+	import WebDev from '$lib/assets/icons/WebDev.svg';
+	import CommunityManagement from '$lib/assets/icons/CommunityManagement.svg';
 
 	import v0 from '$lib/assets/Vector-0.svg';
 	import v1 from '$lib/assets/Vector-1.svg';

@@ -19,7 +19,7 @@
 	#landing {
 		position: relative;
 		width: 100%;
-		height: 100vh;
+		min-height: 100vh;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -29,7 +29,6 @@
 	h1,
 	h2 {
 		z-index: 1;
-
 		color: var(--secondary-color);
 		text-align: center;
 		cursor: default;
@@ -61,7 +60,12 @@
 		filter: blur(4px);
 		z-index: 0;
 		position: absolute;
-		top: 8%;
-		width: 45%;
+		max-width: 40em;
+		margin-left: auto;
+		margin-right: auto;
+		right: 0;
+		left: 0;
+	}
+	h1 {
 	}
 </style>
