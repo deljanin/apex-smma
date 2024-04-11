@@ -35,10 +35,6 @@
 		user-select: none;
 	}
 
-	h2 {
-		font-size: 2.1em;
-		font-family: K2D;
-	}
 	a {
 		z-index: 2;
 	}
@@ -48,7 +44,7 @@
 		cursor: pointer;
 		transform: translateY(13vh);
 
-		font-family: Coolvetica;
+		font-family: Raleway;
 		font-size: 2em;
 		color: var(--secondary-color);
 		border-radius: 100px;
@@ -60,12 +56,11 @@
 		filter: blur(4px);
 		z-index: 0;
 		position: absolute;
+		top: 8%;
 		max-width: 40em;
+		left: 0;
+		right: 0;
 		margin-left: auto;
 		margin-right: auto;
-		right: 0;
-		left: 0;
-	}
-	h1 {
 	}
 </style>

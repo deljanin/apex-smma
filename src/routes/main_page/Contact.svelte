@@ -118,7 +118,7 @@
 		z-index: 2;
 		cursor: pointer;
 
-		font-family: Coolvetica;
+		font-family: Raleway;
 		font-size: 2em;
 		color: var(--secondary-color);
 		border-radius: 100px;

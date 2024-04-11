@@ -9,7 +9,7 @@
 
 <!-- <CustomCursor /> -->
 <Landing />
-<HowItWorks />
-<Offers />
-<Plans />
-<Contact />
+<!-- <HowItWorks /> -->
+<!-- <Offers /> -->
+<!-- <Plans /> -->
+<!-- <Contact /> -->

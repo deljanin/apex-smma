@@ -177,7 +177,7 @@
 		justify-content: center;
 	}
 	span {
-		font-family: Coolvetica;
+		font-family: Raleway;
 		font-size: 2.5em;
 		display: block;
 	}

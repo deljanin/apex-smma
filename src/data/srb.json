@@ -2,7 +2,7 @@
 	"navbar": [
 		{ "text": "Početna", "link": "#landing" },
 		{ "text": "Usluge", "link": "#services" },
-		{ "text": "O nama", "link": "#about" },
+		{ "text": "Planovi", "link": "#about" },
 		{ "text": "Kontakt", "link": "#contact" }
 	],
 	"navbarAlt": [
