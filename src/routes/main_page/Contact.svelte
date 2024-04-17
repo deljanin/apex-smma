@@ -18,8 +18,8 @@
 
 <div id="contact">
 	<h1>{$txt.contact.heading}</h1>
-	<form on:submit|preventDefault={submitForm}>
-		<input class="form__field" type="hidden" value="extraText" />
+	<form on:submit|preventDefault={submitForm} autocomplete="off">
+		<input class="form__field" type="hidden" value="extraText" autocomplete="off" />
 
 		<div class="form__group field">
 			<input
@@ -28,6 +28,7 @@
 				name={$txt.contact.name.key}
 				placeholder={$txt.contact.name.placeholder}
 				required
+				autocomplete="off"
 			/>
 			<label class="form__label" for={$txt.contact.name.key}>{$txt.contact.name.placeholder}</label>
 		</div>
@@ -38,6 +39,7 @@
 				name={$txt.contact.surname.key}
 				placeholder={$txt.contact.surname.placeholder}
 				required
+				autocomplete="off"
 			/>
 			<label class="form__label" for={$txt.contact.surname.key}
 				>{$txt.contact.surname.placeholder}</label
@@ -50,6 +52,7 @@
 				name={$txt.contact.email.key}
 				placeholder={$txt.contact.email.placeholder}
 				required
+				autocomplete="off"
 			/>
 			<label class="form__label" for={$txt.contact.email.key}
 				>{$txt.contact.email.placeholder}</label
@@ -62,6 +65,7 @@
 				name={$txt.contact.company.key}
 				placeholder={$txt.contact.company.placeholder}
 				required
+				autocomplete="off"
 			/>
 			<label class="form__label" for={$txt.contact.company.key}
 				>{$txt.contact.company.placeholder}</label
@@ -74,6 +78,7 @@
 				type="text"
 				name={$txt.contact.website.key}
 				placeholder={$txt.contact.website.placeholder}
+				autocomplete="off"
 			/>
 			<label class="form__label" for={$txt.contact.website.key}
 				>{$txt.contact.website.placeholder}</label
