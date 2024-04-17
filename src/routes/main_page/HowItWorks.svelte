@@ -78,9 +78,6 @@
 	}
 	h1 {
 		height: 30vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 	h2,
 	p {
@@ -88,11 +85,11 @@
 		width: 17vw;
 	}
 	h2 {
-		font-size: 2.5em;
+		/* font-size: 2.5em; */
 		text-align: right;
 	}
 	p {
-		font-size: 1.5em;
+		/* font-size: 1.5em; */
 		text-wrap: pretty;
 	}
 	p span {
@@ -129,5 +126,14 @@
 		background: var(--shadow-gradient-bottom);
 		bottom: 0;
 		height: 25vh;
+	}
+	@media only screen and (max-width: 1200px) {
+		div {
+			width: 100%;
+		}
+		h2,
+		p {
+			width: 33%;
+		}
 	}
 </style>

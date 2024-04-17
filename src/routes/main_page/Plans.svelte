@@ -1,6 +1,7 @@
 <script>
-	import { slide } from 'svelte/transition';
+	import { slide, scale } from 'svelte/transition';
 	import { txt } from '$lib/context.js';
+	import viewport from '$lib/observer.js';
 
 	import SilverPlanIcon from '$lib/assets/icons/SilverPlanIcon.svg';
 	import GoldPlanIcon from '$lib/assets/icons/GoldPlanIcon.svg';
@@ -23,11 +24,7 @@
 		1: GoldPlanIcon,
 		2: PlatinumPlanIcon
 	};
-	const links = {
-		0: 'silver-plan',
-		1: 'gold-plan',
-		2: 'platinum-plan'
-	};
+	const links = ['silver-plan', 'gold-plan', 'platinum-plan'];
 	const offerIcons = {
 		0: SocialMediaManagement,
 		1: EmailMarketing,
@@ -52,8 +49,42 @@
 			descriptions[openDescription] = !descriptions[openDescription];
 		}
 	}
+	$: isVisibleSilverPlan = false;
+	$: isVisibleGoldPlan = false;
+	$: isVisiblePlatinumPlan = false;
+
+	function changeVisible(plan, visible) {
+		switch (plan) {
+			case links[0]:
+				visible ? (isVisibleSilverPlan = true) : '';
+				break;
+			case links[1]:
+				visible ? (isVisibleGoldPlan = true) : '';
+				break;
+			case links[2]:
+				visible ? (isVisiblePlatinumPlan = true) : '';
+				break;
+			case 'magicDiv':
+				if (visible) {
+					isVisibleSilverPlan = false;
+					isVisibleGoldPlan = false;
+					isVisiblePlatinumPlan = false;
+				}
+				break;
+		}
+	}
 </script>
 
+<div
+	class="magicDiv"
+	use:viewport
+	on:enterViewport={() => {
+		changeVisible('magicDiv', true);
+	}}
+	on:exitViewport={() => {
+		changeVisible('magicDiv', false);
+	}}
+></div>
 <div id="plans">
 	<div class="plans-scroll">
 		<img id="v0" src={v0} alt="Hand vector 1" />
@@ -61,7 +92,17 @@
 		<img id="v2" src={v2} alt="Hand vector 3" />
 		<img id="v3" src={v3} alt="Hand vector 4" />
 		{#each $txt.whatWeOffer.cards as circle, i}
-			<div class="plan-circle" id={links[i]}>
+			<div
+				class="plan-circle"
+				id={links[i]}
+				use:viewport
+				on:enterViewport={() => {
+					changeVisible(links[i], true);
+				}}
+				on:exitViewport={() => {
+					changeVisible(links[i], false);
+				}}
+			>
 				<img src={icons[i]} alt={circle.frontText} />
 				<span class="powerText">{circle.frontText}</span>
 			</div>
@@ -69,15 +110,37 @@
 	</div>
 	<div class="plans-static">
 		{#each $txt.whatWeOffer.offerings as offer, i}
-			<button id={`plan-group${i}`} on:click={() => showDescription(i)}>
-				<div>
-					<img src={offerIcons[i]} alt={offer.title} />
-					<h2>{offer.title}</h2>
-				</div>
-				{#if descriptions[i]}
-					<p transition:slide>{offer.description}</p>
-				{/if}
-			</button>
+			{#if (i === 0 || i === 1) && isVisibleSilverPlan}
+				<button id={`plan-group${i}`} on:click={() => showDescription(i)} transition:scale>
+					<div>
+						<img src={offerIcons[i]} alt={offer.title} />
+						<h2>{offer.title}</h2>
+					</div>
+					{#if descriptions[i]}
+						<p transition:slide>{@html offer.description}</p>
+					{/if}
+				</button>
+			{:else if (i === 2 || i === 3) && isVisibleGoldPlan}
+				<button id={`plan-group${i}`} on:click={() => showDescription(i)} transition:scale>
+					<div>
+						<img src={offerIcons[i]} alt={offer.title} />
+						<h2>{offer.title}</h2>
+					</div>
+					{#if descriptions[i]}
+						<p transition:slide>{@html offer.description}</p>
+					{/if}
+				</button>
+			{:else if (i === 4 || i === 5) && isVisiblePlatinumPlan}
+				<button id={`plan-group${i}`} on:click={() => showDescription(i)} transition:scale>
+					<div>
+						<img src={offerIcons[i]} alt={offer.title} />
+						<h2>{offer.title}</h2>
+					</div>
+					{#if descriptions[i]}
+						<p transition:slide>{@html offer.description}</p>
+					{/if}
+				</button>
+			{/if}
 		{/each}
 	</div>
 </div>

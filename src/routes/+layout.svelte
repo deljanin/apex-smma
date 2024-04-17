@@ -24,7 +24,7 @@
 	}
 	let y = 0;
 	let navSticky;
-	$: if (y < 25) {
+	$: if (y < 25 && innerWidth > 700) {
 		navSticky = '';
 	} else {
 		navSticky = 'navSticky';
@@ -119,7 +119,7 @@
 	}
 
 	nav {
-		z-index: 3;
+		z-index: 5;
 		position: relative;
 		top: 0;
 		width: 100%;
