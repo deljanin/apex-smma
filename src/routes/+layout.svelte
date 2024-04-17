@@ -24,6 +24,7 @@
 	}
 	let y = 0;
 	let navSticky;
+	let innerWidth;
 	$: if (y < 25 && innerWidth > 700) {
 		navSticky = '';
 	} else {
@@ -32,7 +33,7 @@
 
 	let toggleMenu = false;
 	let toggleBorder = false;
-	let innerWidth;
+
 	$: if (innerWidth > 700) {
 		toggleMenu = true;
 	} else {
@@ -64,7 +65,8 @@
 			<button on:click={handleLanguageChange}>
 				<img src={langIcon} alt="Language change button" />
 			</button>
-			{#if innerWidth < 700}
+			{#if innerWidth < 701}
+				<!-- Ova vrednost je 701 zbog dropdowna koji ne postoji na sirini od 700px inace -->
 				<div class="menuButton">
 					<input
 						type="checkbox"
@@ -85,6 +87,8 @@
 	</div>
 </nav>
 <slot />
+
+<!--
 <div class="footer">
 	<div>
 		<div>
@@ -101,7 +105,7 @@
 		</div>
 	</div>
 </div>
-
+-->
 <style>
 	.navSticky {
 		position: fixed;
@@ -239,7 +243,7 @@
 		right: 0;
 		height: 4px;
 		border-radius: calc(4px / 2);
-		background: var(--main-gradient);
+		background: var(--primary-color);
 		color: inherit;
 		opacity: 1;
 		transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
@@ -303,17 +307,16 @@
 	}
 
 	/* MIN 320 */
-	@media only screen and (max-width: 679px) {
+	@media only screen and (max-width: 700px) {
 		nav > div {
-			width: 90%;
-			height: 60px;
+			width: 100%;
 		}
 
-		a > img {
-			width: 45px;
+		nav a > img {
+			width: 50px;
 		}
 	}
-	@media only screen and (min-width: 680px) and (max-width: 1139px) {
+	@media only screen and (min-width: 700px) and (max-width: 1139px) {
 		nav > div {
 			width: 85%;
 		}
