@@ -11,8 +11,8 @@
 		{ "text": "Terms and Conditions", "link": "/terms_and_conditions" }
 	],
 	"landing": {
-		"heading1": "<span class='powerText'>Elevate</span> your online presence",
-		"heading2": "Ready to take your business to the next level?<br/>Boost your brand by joining our digital marketing team.",
+		"heading1": "[Elevate] your online presence",
+		"heading2": "Ready to take your business to the next level?^Boost your brand by joining our digital marketing team.",
 		"buttonText": "Let's talk"
 	},
 	"howItWorks": {

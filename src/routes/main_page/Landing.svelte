@@ -2,17 +2,40 @@
 	import { handleAnchorClick } from '$lib/smoothScroll.js';
 	import Dots from './dots.svelte';
 	import { txt } from '$lib/context.js';
+	import { onMount } from 'svelte';
+	import AnimatedText from '$lib/animatedText.svelte';
+
+	$: animate = false;
+	onMount(() => {
+		animate = true;
+	});
 </script>
 
 <div id="landing">
-	<h1>{@html $txt.landing.heading1}</h1>
-	<h2>{@html $txt.landing.heading2}</h2>
-	<a href="#contact" on:click={handleAnchorClick}>
-		<button>{$txt.landing.buttonText}</button>
-	</a>
-	<div class="dots_wrapper">
-		<Dots />
-	</div>
+	{#if animate}
+		<h1>
+			<AnimatedText
+				txt={$txt.landing.heading1}
+				duration={1}
+				delayDivisor="50"
+				animationDelay="100"
+			/>
+		</h1>
+		<h2>
+			<AnimatedText
+				txt={$txt.landing.heading2}
+				duration={1}
+				delayDivisor="50"
+				animationDelay="500"
+			/>
+		</h2>
+		<a href="#contact" on:click={handleAnchorClick}>
+			<button>{$txt.landing.buttonText}</button>
+		</a>
+		<div class="dots_wrapper">
+			<Dots />
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -24,7 +47,9 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		gap: 0.7em;
+	}
+	h1 {
+		margin-bottom: 0.7rem;
 	}
 	h1,
 	h2 {
