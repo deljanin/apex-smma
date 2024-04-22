@@ -3,7 +3,9 @@
 	import Dots from './dots.svelte';
 	import { txt } from '$lib/context.js';
 	import { onMount } from 'svelte';
-	import AnimatedText from '$lib/animatedText.svelte';
+	import AnimatedText from '$lib/animation/AnimatedText.svelte';
+	import AnimatedPowerText from '$lib/animation/AnimatedPowerText.svelte';
+	import SmoothAppear from '$lib/animation/SmoothAppear.svelte';
 
 	$: animate = false;
 	onMount(() => {
@@ -13,25 +15,37 @@
 
 <div id="landing">
 	{#if animate}
-		<h1>
-			<AnimatedText
-				txt={$txt.landing.heading1}
-				duration={1}
-				delayDivisor="50"
-				animationDelay="100"
-			/>
-		</h1>
-		<h2>
-			<AnimatedText
-				txt={$txt.landing.heading2}
-				duration={1}
-				delayDivisor="50"
-				animationDelay="500"
-			/>
-		</h2>
+		<SmoothAppear>
+			<h1>
+				<AnimatedPowerText
+					txt={$txt.landing.heading1[0]}
+					duration={1}
+					delayDivisor="50"
+					animationDelay="100"
+				/>
+				<AnimatedText
+					txt={$txt.landing.heading1[1]}
+					duration={1}
+					delayDivisor="50"
+					animationDelay="500"
+				/>
+			</h1>
+		</SmoothAppear>
+		<SmoothAppear delay={1000}>
+			<h2>
+				<AnimatedText
+					txt={$txt.landing.heading2}
+					duration={1}
+					delayDivisor="50"
+					initialDelay={500}
+				/>
+			</h2>
+		</SmoothAppear>
+
 		<a href="#contact" on:click={handleAnchorClick}>
 			<button>{$txt.landing.buttonText}</button>
 		</a>
+
 		<div class="dots_wrapper">
 			<Dots />
 		</div>
