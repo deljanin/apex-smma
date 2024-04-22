@@ -145,6 +145,17 @@
 		background-color: var(--nav-transparent);
 		backdrop-filter: blur(15px);
 		transition: all 0.4s;
+		opacity: 0;
+		animation: navbarAnimation 1s 5s forwards;
+	}
+	@keyframes navbarAnimation {
+		from {
+			top: -0.2rem;
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 	nav a > img {
 		width: 60px;

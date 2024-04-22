@@ -6,50 +6,38 @@
 	import AnimatedText from '$lib/animation/AnimatedText.svelte';
 	import AnimatedPowerText from '$lib/animation/AnimatedPowerText.svelte';
 	import SmoothAppear from '$lib/animation/SmoothAppear.svelte';
-
-	$: animate = false;
-	onMount(() => {
-		animate = true;
-	});
 </script>
 
 <div id="landing">
-	{#if animate}
-		<SmoothAppear>
-			<h1>
-				<AnimatedPowerText
-					txt={$txt.landing.heading1[0]}
-					duration={1}
-					delayDivisor="50"
-					animationDelay="100"
-				/>
-				<AnimatedText
-					txt={$txt.landing.heading1[1]}
-					duration={1}
-					delayDivisor="50"
-					animationDelay="500"
-				/>
-			</h1>
-		</SmoothAppear>
-		<SmoothAppear delay={1000}>
-			<h2>
-				<AnimatedText
-					txt={$txt.landing.heading2}
-					duration={1}
-					delayDivisor="50"
-					initialDelay={500}
-				/>
-			</h2>
-		</SmoothAppear>
+	<SmoothAppear>
+		<h1>
+			<AnimatedPowerText
+				txt={$txt.landing.heading1[0]}
+				duration={1}
+				delayDivisor="50"
+				animationDelay="100"
+			/>
+			<AnimatedText
+				txt={$txt.landing.heading1[1]}
+				duration={1}
+				delayDivisor="50"
+				animationDelay="500"
+			/>
+		</h1>
+	</SmoothAppear>
+	<SmoothAppear delay={1000}>
+		<h2>
+			<AnimatedText txt={$txt.landing.heading2} duration={1} delayDivisor="50" initialDelay={500} />
+		</h2>
+	</SmoothAppear>
 
-		<a href="#contact" on:click={handleAnchorClick}>
-			<button>{$txt.landing.buttonText}</button>
-		</a>
+	<a href="#contact" on:click={handleAnchorClick}>
+		<button>{$txt.landing.buttonText}</button>
+	</a>
 
-		<div class="dots_wrapper">
-			<Dots />
-		</div>
-	{/if}
+	<div class="dots_wrapper">
+		<Dots />
+	</div>
 </div>
 
 <style>
@@ -78,17 +66,29 @@
 		z-index: 2;
 	}
 	button {
+		position: relative;
 		border: none;
 		z-index: 2;
 		cursor: pointer;
 		transform: translateY(13vh);
-
 		font-family: Raleway;
 		font-size: 2em;
 		color: var(--secondary-color);
 		border-radius: 100px;
 		padding: 0.5em 1.5em;
 		background-image: var(--text-gradient);
+		opacity: 0;
+		animation: buttonAnimation 1s 5s forwards;
+	}
+	@keyframes buttonAnimation {
+		from {
+			opacity: 0;
+			bottom: -2rem;
+		}
+		to {
+			opacity: 1;
+			bottom: 0;
+		}
 	}
 
 	.dots_wrapper {
@@ -101,6 +101,8 @@
 		right: 0;
 		margin-left: auto;
 		margin-right: auto;
+		opacity: 0;
+		animation: fadeIn 2s forwards;
 	}
 	@media only screen and (max-width: 700px) {
 		#landing {
