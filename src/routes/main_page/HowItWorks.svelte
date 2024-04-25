@@ -1,7 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
-	import { txt } from '$lib/context.js';
+	import { txt } from '$lib/utils/context.js';
 	import background from '$lib/assets/howItWorksBg.svg';
+	import AnimatedText from '$lib/animation/AnimatedText.svelte';
+	import viewport from '$lib/utils/observer.js';
 
 	// let spans = [[], [], [], []];
 	// function animateTextOnScroll() {
@@ -19,6 +21,8 @@
 	// 			}
 	// 		}
 	// }
+	let animate = new Array($txt.howItWorks.circles.length);
+	animate.fill(false);
 </script>
 
 <!-- <svelte:window on:scroll={animateTextOnScroll} /> -->
@@ -26,11 +30,19 @@
 	<h1>{$txt.howItWorks.heading}</h1>
 	{#each $txt.howItWorks.circles as circle, i}
 		<div>
-			<h2>{circle.mainText}</h2>
+			<h2
+				use:viewport
+				on:enterViewport={() => {
+					animate[i] = true;
+				}}
+			>
+				{circle.mainText}
+			</h2>
 			<div class="circles"></div>
 			<div class="vertical_line"></div>
 			<p>
 				{circle.subText}
+				<!-- <AnimatedText txt={circle.subText} delayDivisor="50" animate={animate[i]} /> -->
 			</p>
 		</div>
 	{/each}
@@ -89,11 +101,8 @@
 		text-align: right;
 	}
 	p {
-		/* font-size: 1.5em; */
+		font-size: 1.5em;
 		text-wrap: pretty;
-	}
-	p span {
-		opacity: 0.3;
 	}
 
 	.imgContainer {

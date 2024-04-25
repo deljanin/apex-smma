@@ -1,9 +1,9 @@
 <script>
-	import { txt } from '$lib/context.js';
+	import { txt } from '$lib/utils/context.js';
 	import SilverPlanIcon from '$lib/assets/icons/SilverPlanIcon.svg';
 	import GoldPlanIcon from '$lib/assets/icons/GoldPlanIcon.svg';
 	import PlatinumPlanIcon from '$lib/assets/icons/PlatinumPlanIcon.svg';
-	import { handleAnchorClickCenter } from '$lib/smoothScroll.js';
+	import { handleAnchorClickCenter } from '$lib/utils/smoothScroll.js';
 
 	const icons = {
 		0: SilverPlanIcon,

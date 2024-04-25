@@ -4,7 +4,7 @@
 	import Offers from './main_page/Offers.svelte';
 	import Plans from './main_page/Plans.svelte';
 	import Contact from './main_page/Contact.svelte';
-	import CustomCursor from '../lib/customCursor.svelte';
+	import CustomCursor from '$lib/components/customCursor.svelte';
 </script>
 
 <!-- <CustomCursor /> -->

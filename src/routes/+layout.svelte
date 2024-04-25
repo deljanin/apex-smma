@@ -4,7 +4,7 @@
 
 	import { slide } from 'svelte/transition';
 
-	import { handleAnchorClick } from '$lib/smoothScroll.js';
+	import { handleAnchorClick } from '$lib/utils/smoothScroll.js';
 	import logoDark from '$lib/assets/icons/LogoDark.svg';
 	import langIcon from '$lib/assets/icons/langIconDark.svg';
 	import XIcon from '$lib/socials/X.svelte';
@@ -13,9 +13,9 @@
 	import FacebookIcon from '$lib/socials/Facebook.svelte';
 	import LinkedInIcon from '$lib/socials/LinkedIn.svelte';
 
-	import { languageData } from '$lib/languageData.js';
+	import { languageData } from '$lib/utils/languageData.js';
 
-	import { txt } from '$lib/context.js';
+	import { txt } from '$lib/utils/context.js';
 	import { page } from '$app/stores';
 	var lng = 'en';
 	function handleLanguageChange() {
@@ -88,7 +88,6 @@
 </nav>
 <slot />
 
-<!--
 <div class="footer">
 	<div>
 		<div>
@@ -105,7 +104,7 @@
 		</div>
 	</div>
 </div>
--->
+
 <style>
 	.navSticky {
 		position: fixed;

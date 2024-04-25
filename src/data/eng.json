@@ -93,5 +93,16 @@
 		"ppolicy": "Privacy Policy",
 		"terms": "Terms & Conditions",
 		"rights": "@2024 SMMA.TEAM All Right Reserved"
+	},
+	"modal": {
+		"success": {
+			"heading": "Message sent",
+			"text": "Thank you for contacting us. We will send you a confirmation email with additional information shortly."
+		},
+		"fail": {
+			"heading": "Something went wrong :(",
+			"text": "Please contact us via social media (links below). Or write an email to this address: contact@apex-smma.com"
+		},
+		"buttonText": "Okay"
 	}
 }

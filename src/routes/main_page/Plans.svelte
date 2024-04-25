@@ -1,7 +1,7 @@
 <script>
 	import { slide, scale } from 'svelte/transition';
-	import { txt } from '$lib/context.js';
-	import viewport from '$lib/observer.js';
+	import { txt } from '$lib/utils/context.js';
+	import viewport from '$lib/utils/observer.js';
 
 	import SilverPlanIcon from '$lib/assets/icons/SilverPlanIcon.svg';
 	import GoldPlanIcon from '$lib/assets/icons/GoldPlanIcon.svg';

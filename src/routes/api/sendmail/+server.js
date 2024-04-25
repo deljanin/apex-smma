@@ -3,25 +3,26 @@ sgMail.setApiKey(process.env.SENDGRIDAPIKEY);
 
 export const POST = async ({ request }) => {
 	const body = await request.json();
-	console.log(body);
-	let mailHtml = '<ul>';
-	for (var key in body) {
-		mailHtml += `<li>${key}:  ${body[key]}</li>`;
-	}
-	mailHtml += '</ul>';
+	if (!body.extraText) {
+		let mailHtml = '<ul>';
+		for (var key in body) {
+			mailHtml += `<li>${key}:  ${body[key]}</li>`;
+		}
+		mailHtml += '</ul>';
 
-	const msg = {
-		to: 'pecadeljanin@gmail.com',
-		from: 'petar@deljanin.dev',
-		subject: 'Kontak forma websajt',
-		html: mailHtml
-	};
-	try {
-		await sgMail.send(msg);
-		return new Response('Email sent', { status: 200 });
-	} catch (error) {
-		console.error(error);
+		const msg = {
+			to: 'pecadeljanin@gmail.com',
+			from: 'petar@deljanin.dev',
+			subject: 'Kontak forma websajt',
+			html: mailHtml
+		};
+		try {
+			await sgMail.send(msg);
+			return new Response({ status: 200 });
+		} catch (error) {
+			console.error(error);
 
-		return new Response('Failed to send email', { status: 500 });
-	}
+			return new Response({ status: 500 });
+		}
+	} else return new Response({ status: 403 });
 };

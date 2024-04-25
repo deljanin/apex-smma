@@ -1,7 +1,7 @@
 <script>
-	import { handleAnchorClick } from '$lib/smoothScroll.js';
+	import { handleAnchorClick } from '$lib/utils/smoothScroll.js';
 	import Dots from './dots.svelte';
-	import { txt } from '$lib/context.js';
+	import { txt } from '$lib/utils/context.js';
 	import { onMount } from 'svelte';
 	import AnimatedText from '$lib/animation/AnimatedText.svelte';
 	import AnimatedPowerText from '$lib/animation/AnimatedPowerText.svelte';
@@ -32,7 +32,10 @@
 	</SmoothAppear>
 
 	<a href="#contact" on:click={handleAnchorClick}>
-		<button>{$txt.landing.buttonText}</button>
+		<button>
+			<span class="text">{$txt.landing.buttonText}</span>
+			<span class="effect"></span></button
+		>
 	</a>
 
 	<div class="dots_wrapper">
@@ -73,13 +76,50 @@
 		transform: translateY(13vh);
 		font-family: Raleway;
 		font-size: 2em;
-		color: var(--secondary-color);
 		border-radius: 100px;
 		padding: 0.5em 1.5em;
-		background-image: var(--text-gradient);
+		color: var(--secondary-color);
+		background-image: var(--text-gradient-dark);
 		opacity: 0;
 		animation: buttonAnimation 1s 5s forwards;
+		transition: all 400ms;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 7px;
+		overflow: hidden;
 	}
+	.text {
+		z-index: 2;
+	}
+	button:hover {
+		transition: all 400ms;
+		box-shadow:
+			0px 0px 5px #47deb1,
+			0px 0px 15px #fa8cfa;
+		transition-duration: 0.7s;
+	}
+	button:hover .effect {
+		background-image: var(--text-gradient);
+		transform: scale(18);
+		transform-origin: center;
+		opacity: 1;
+		transition-duration: 0.5s;
+	}
+	.effect {
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		background-image: var(--text-gradient-dark);
+		border-radius: 50%;
+		z-index: 1;
+		opacity: 0;
+		transition-duration: 0.5s;
+	}
+	button:active {
+		scale: 0.9;
+	}
+
 	@keyframes buttonAnimation {
 		from {
 			opacity: 0;

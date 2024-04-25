@@ -93,5 +93,16 @@
 		"ppolicy": "Privacy Policy",
 		"terms": "Terms & Conditions",
 		"rights": "@2024 SMMA.TEAM All Right Reserved"
+	},
+	"modal": {
+		"success": {
+			"heading": "Poruka poslata",
+			"text": "Hvala Vam što nas kontaktirate. Uskoro ćete dobiti email sa sledećim koracima."
+		},
+		"fail": {
+			"heading": "Poruka nije poslata :(",
+			"text": "Molimo Vas da nas kontaktirate preko društvenih mreža (Možete ih pronaći ispod). Ili nam pošaljite email na: contact@apex-smma.com"
+		},
+		"buttonText": "Uredu"
 	}
 }
