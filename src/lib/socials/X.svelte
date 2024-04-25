@@ -39,4 +39,14 @@
 	a:hover path ~ defs stop:last-child {
 		stop-color: #fa8cfa;
 	}
+	@media only screen and (max-width: 700px) {
+		svg {
+			height: 28px;
+		}
+	}
+	@media only screen and (min-width: 700px) and (max-width: 1139px) {
+		svg {
+			height: 28px;
+		}
+	}
 </style>

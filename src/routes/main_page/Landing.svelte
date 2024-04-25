@@ -6,42 +6,54 @@
 	import AnimatedText from '$lib/animation/AnimatedText.svelte';
 	import AnimatedPowerText from '$lib/animation/AnimatedPowerText.svelte';
 	import SmoothAppear from '$lib/animation/SmoothAppear.svelte';
+
+	let isVisible = false;
+	onMount(() => {
+		isVisible = true;
+	});
 </script>
 
-<div id="landing">
-	<SmoothAppear>
-		<h1>
-			<AnimatedPowerText
-				txt={$txt.landing.heading1[0]}
-				duration={1}
-				delayDivisor="50"
-				animationDelay="100"
-			/>
-			<AnimatedText
-				txt={$txt.landing.heading1[1]}
-				duration={1}
-				delayDivisor="50"
-				animationDelay="500"
-			/>
-		</h1>
-	</SmoothAppear>
-	<SmoothAppear delay={1000}>
-		<h2>
-			<AnimatedText txt={$txt.landing.heading2} duration={1} delayDivisor="50" initialDelay={500} />
-		</h2>
-	</SmoothAppear>
+{#if isVisible}
+	<div id="landing">
+		<SmoothAppear>
+			<h1>
+				<AnimatedPowerText
+					txt={$txt.landing.heading1[0]}
+					duration={1}
+					delayDivisor="50"
+					animationDelay="100"
+				/>
+				<AnimatedText
+					txt={$txt.landing.heading1[1]}
+					duration={1}
+					delayDivisor="50"
+					animationDelay="500"
+				/>
+			</h1>
+		</SmoothAppear>
+		<SmoothAppear delay={1000}>
+			<h2>
+				<AnimatedText
+					txt={$txt.landing.heading2}
+					duration={1}
+					delayDivisor="50"
+					initialDelay={500}
+				/>
+			</h2>
+		</SmoothAppear>
 
-	<a href="#contact" on:click={handleAnchorClick}>
-		<button>
-			<span class="text">{$txt.landing.buttonText}</span>
-			<span class="effect"></span></button
-		>
-	</a>
+		<a href="#contact" on:click={handleAnchorClick}>
+			<button>
+				<span class="text">{$txt.landing.buttonText}</span>
+				<span class="effect"></span></button
+			>
+		</a>
 
-	<div class="dots_wrapper">
-		<Dots />
+		<div class="dots_wrapper">
+			<Dots />
+		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	#landing {
@@ -145,6 +157,14 @@
 		animation: fadeIn 2s forwards;
 	}
 	@media only screen and (max-width: 700px) {
+		h1,
+		h2 {
+			margin: auto;
+			max-width: 95%;
+		}
+		h1 {
+			letter-spacing: normal;
+		}
 		#landing {
 			overflow-x: hidden;
 		}

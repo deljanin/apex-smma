@@ -99,9 +99,8 @@
 		</div>
 		<a href="/privacy_policy">{$txt.footer.ppolicy}</a>
 		<a href="/terms_and_conditions">{$txt.footer.terms}</a>
-		<div>
-			{$txt.footer.rights}
-		</div>
+
+		{$txt.footer.rights}
 	</div>
 </div>
 
@@ -112,6 +111,8 @@
 		backdrop-filter: blur(12px);
 		transition: background-color 0.4s;
 		height: 70px;
+		opacity: 0;
+		animation: navbarAnimation 1s 5s forwards;
 	}
 	.navSticky > div {
 		position: fixed;
@@ -314,16 +315,35 @@
 		.menuButton {
 			display: block;
 		}
-	}
-
-	/* MIN 320 */
-	@media only screen and (max-width: 700px) {
 		nav > div {
 			width: 100%;
 		}
 
 		nav a > img {
 			width: 50px;
+		}
+	}
+
+	/* MIN 320 */
+	@media only screen and (max-width: 519px) {
+		.footer > div {
+			height: auto;
+			width: 100%;
+			bottom: 0;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			flex-direction: column;
+			justify-content: space-evenly;
+			gap: 1vh;
+			padding: 3vh 0 3vh 0;
+		}
+	}
+	@media only screen and (min-width: 520px) and (max-width: 700px) {
+		.footer > div {
+			width: 100%;
+			bottom: 0;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
 		}
 	}
 	@media only screen and (min-width: 700px) and (max-width: 1139px) {

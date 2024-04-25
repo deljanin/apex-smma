@@ -5,9 +5,17 @@
 	import Plans from './main_page/Plans.svelte';
 	import Contact from './main_page/Contact.svelte';
 	import CustomCursor from '$lib/components/customCursor.svelte';
+	import { onMount } from 'svelte';
+	let isPC = false;
+	onMount(() => {
+		isPC = window.innerWidth > 768;
+	});
 </script>
 
-<!-- <CustomCursor /> -->
+{#if isPC}
+	<CustomCursor />
+{/if}
+
 <Landing />
 <HowItWorks />
 <Offers />

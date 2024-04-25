@@ -248,4 +248,9 @@
 		width: 50%;
 		height: auto;
 	}
+	@media only screen and (max-width: 1139px) {
+		.plans-scroll > img {
+			display: none;
+		}
+	}
 </style>
