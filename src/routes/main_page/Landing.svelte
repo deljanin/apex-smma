@@ -91,7 +91,8 @@
 		border-radius: 100px;
 		padding: 0.5em 1.5em;
 		color: var(--secondary-color);
-		background-image: var(--text-gradient-dark);
+		background-color: var(--nav-transparent);
+		backdrop-filter: blur(12px);
 		opacity: 0;
 		animation: buttonAnimation 1s 5s forwards;
 		transition: all 400ms;

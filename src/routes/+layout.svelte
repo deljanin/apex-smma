@@ -25,10 +25,15 @@
 	let y = 0;
 	let navSticky;
 	let innerWidth;
+	let navAnimate = false;
+
 	$: if (y < 25 && innerWidth > 700) {
-		navSticky = '';
+		navSticky = false;
 	} else {
-		navSticky = 'navSticky';
+		navSticky = true;
+	}
+	$: if (innerWidth <= 700) {
+		navAnimate = true;
 	}
 
 	let toggleMenu = false;
@@ -43,7 +48,7 @@
 
 <svelte:window bind:scrollY={y} bind:innerWidth />
 
-<nav class={navSticky}>
+<nav class:navSticky class:navAnimate>
 	<div class:toggleBorder>
 		<a href="/">
 			<img src={logoDark} alt="Logo" />
@@ -105,14 +110,16 @@
 </div>
 
 <style>
+	.navAnimate {
+		opacity: 0;
+		animation: navbarAnimation 1s 5s forwards;
+	}
 	.navSticky {
 		position: fixed;
 		background-color: var(--nav-transparent);
 		backdrop-filter: blur(12px);
 		transition: background-color 0.4s;
 		height: 70px;
-		opacity: 0;
-		animation: navbarAnimation 1s 5s forwards;
 	}
 	.navSticky > div {
 		position: fixed;
