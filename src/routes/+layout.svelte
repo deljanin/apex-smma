@@ -204,9 +204,6 @@
 		gap: 1em;
 	}
 
-	.toggleMenu {
-		display: none;
-	}
 	.toggleBorder {
 		border-bottom-right-radius: 0;
 	}

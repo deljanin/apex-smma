@@ -13,11 +13,11 @@
 </script>
 
 {#if isPC}
-	<CustomCursor />
+	<!-- <CustomCursor /> -->
 {/if}
 
 <Landing />
-<HowItWorks />
+<!-- <HowItWorks /> -->
 <Offers />
-<Plans />
+<!-- <Plans /> -->
 <Contact />
