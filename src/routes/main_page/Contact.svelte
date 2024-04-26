@@ -216,14 +216,16 @@
 	.text {
 		z-index: 2;
 	}
-	button:hover {
+	button:hover,
+	button:focus {
 		transition: all 400ms;
 		box-shadow:
 			0px 0px 5px #47deb1,
 			0px 0px 15px #fa8cfa;
 		transition-duration: 0.7s;
 	}
-	button:hover .effect {
+	button:hover .effect,
+	button:focus .effect {
 		background-image: var(--text-gradient);
 		transform: scale(18);
 		transform-origin: center;

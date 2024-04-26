@@ -32,11 +32,11 @@
 			transform: rotate(45deg);
 			bottom: -0.2em;
 			opacity: 0;
-			color: #47deb1;
+			color: #fa8cfa;
 		}
 
 		20% {
-			color: #00dbf0;
+			color: #8db4ff;
 		}
 		40% {
 			color: #00cfff;
@@ -45,10 +45,10 @@
 			bottom: 0.2em;
 		}
 		60% {
-			color: #8db4ff;
+			color: #00dbf0;
 		}
 		80% {
-			color: #fa8cfa;
+			color: #47deb1;
 		}
 
 		100% {

@@ -40,16 +40,13 @@
 		"heading": "Šta nudimo",
 		"cards": [
 			{
-				"frontText": "Srebrni Plan",
-				"backText": "Postasvite temelj vašeg onlajn uspeha uz pomoć naših esencijalnih usluga. Uskočite u efektivni menadžment društvenih mreža i ciljanog email marketinga kako bi ste započeli digitalno putovanje vašeg brenda."
+				"frontText": "Srebrni Plan"
 			},
 			{
-				"frontText": "Zlatni Plan",
-				"backText": "Ojačajte vaš onlajn uticaj uz pomoć naših mnogobrojnih strategija. Pored menadžmenta društvenih mreža i ciljanog email marketinga, povećajte vašu vidljivost koristeci Google SEO metode i očarajte publiku primamljivim sadržajem koji je namenjen njihovim potrebama."
+				"frontText": "Zlatni Plan"
 			},
 			{
-				"frontText": "Platinum Plan",
-				"backText": "Dovedite vaš brend do novih visina uz naš premijum paket. Bez problema integrišite sve aspekte vašeg online uticaja sa našim potpuno prilagođenim dizajnom i razvojem web sajta, upotpunjenim stručnim upravljanjem društvenim medijima radi održavanja trajnih veza sa vašom publikom."
+				"frontText": "Platinum Plan"
 			}
 		],
 		"offerings": [

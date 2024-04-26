@@ -25,7 +25,7 @@
 				<div class={`vertical-line l${i}`}></div>
 				<a href={links[i]} on:click={handleAnchorClickCenter}>
 					<div class="card">
-						<img src={icons[i]} alt={card.frontText} />
+						<div><img src={icons[i]} alt={card.frontText} /></div>
 						<span class="powerText frontText">{card.frontText}</span>
 						<span class="backText">{card.backText}</span>
 					</div>
@@ -60,7 +60,8 @@
 	}
 
 	.card {
-		padding: 15vh 4vw;
+		width: 20rem;
+		height: 30rem;
 		border-style: solid;
 		border-width: 1px;
 		border-image: var(--card-border) 30;
@@ -74,26 +75,66 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		transition: 0.4s all ease;
+	}
+	.card:hover {
+		transition: 0.4s background-color scale ease;
+		background-color: var(--card-color);
+		scale: 1.05;
+	}
+
+	.card:hover::before {
+		content: '';
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: var(--main-gradient);
+		transform: translate3d(0px, 20px, 0) scale(0.95);
+		filter: blur(20px);
+		opacity: 0;
+		animation: fadeIn 1s forwards;
+		border-radius: inherit;
+	}
+
+	.card:hover::after {
+		content: '';
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: inherit;
+		border-radius: inherit;
 	}
 
 	.vertical-line {
 		position: absolute;
-		top: -15%;
+		top: 0;
+		bottom: 0;
+		margin: auto;
 		left: 50%;
-		height: 75vh;
+		height: 40rem;
 		width: 4px;
 		background: var(--line-gradient);
 	}
 	.frontText {
+		max-width: 100%;
 		font-family: Raleway;
-		font-size: 1.8rem;
+		font-size: 2rem;
 		display: block;
 	}
 	.backText {
 		display: none;
 	}
-	img {
+	.card img {
 		width: 75%;
+	}
+	img {
+		max-width: 100%;
 		height: auto;
 	}
 

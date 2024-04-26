@@ -40,16 +40,13 @@
 		"heading": "What we offer",
 		"cards": [
 			{
-				"frontText": "Silver Plan",
-				"backText": "Lay the groundwork for your online success with our essential services. Dive into effective social media management and targeted email marketing to kickstart your brand's digital journey."
+				"frontText": "Silver Plan"
 			},
 			{
-				"frontText": "Gold Plan",
-				"backText": "Elevate your brand's online presence with our diverse strategies. Alongside social media management and email marketing, boost your visibility with Google SEO and captivate your audience with engaging content tailored to their needs."
+				"frontText": "Gold Plan"
 			},
 			{
-				"frontText": "Platinum Plan",
-				"backText": "Propel your brand to new heights with our premium package. Seamlessly integrate all aspects of your online presence with our fully customized website design and development, complemented by expert social media community management to foster lasting connections with your audience."
+				"frontText": "Platinum Plan"
 			}
 		],
 		"offerings": [
