@@ -184,13 +184,16 @@
 		}
 	}
 
+	@media only screen and (max-width: 500px) {
+		.card {
+			width: 80vw;
+		}
+	}
 	@media only screen and (max-width: 700px) {
 		.cards {
 			flex-direction: column;
 			gap: 20vh;
-		}
-		.card {
-			padding: 15vh 6vw;
+			width: 100%;
 		}
 	}
 </style>

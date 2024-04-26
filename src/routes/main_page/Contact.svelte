@@ -54,68 +54,65 @@
 
 	<h1>{$txt.contact.heading}</h1>
 	<form on:submit|preventDefault={submitForm} autocomplete="off">
-		<input class="form__field" type="hidden" value="extraText" autocomplete="off" />
-
-		<div class="form__group field">
+		<input class="formField" type="hidden" value="extraText" autocomplete="off" />
+		<div class="formGroup field">
 			<input
-				class="form__field"
+				class="formField"
 				type="text"
 				name={$txt.contact.name.key}
 				placeholder={$txt.contact.name.placeholder}
 				required
 				autocomplete="off"
 			/>
-			<label class="form__label" for={$txt.contact.name.key}>{$txt.contact.name.placeholder}</label>
+			<label class="formLabel" for={$txt.contact.name.key}>{$txt.contact.name.placeholder}</label>
 		</div>
-		<div class="form__group field">
+		<div class="formGroup field">
 			<input
-				class="form__field"
+				class="formField"
 				type="text"
 				name={$txt.contact.surname.key}
 				placeholder={$txt.contact.surname.placeholder}
 				required
 				autocomplete="off"
 			/>
-			<label class="form__label" for={$txt.contact.surname.key}
+			<label class="formLabel" for={$txt.contact.surname.key}
 				>{$txt.contact.surname.placeholder}</label
 			>
 		</div>
-		<div class="form__group field">
+		<div class="formGroup field">
 			<input
-				class="form__field"
+				class="formField"
 				type="email"
 				name={$txt.contact.email.key}
 				placeholder={$txt.contact.email.placeholder}
 				required
 				autocomplete="off"
 			/>
-			<label class="form__label" for={$txt.contact.email.key}
-				>{$txt.contact.email.placeholder}</label
-			>
+			<label class="formLabel" for={$txt.contact.email.key}>{$txt.contact.email.placeholder}</label>
 		</div>
-		<div class="form__group field">
+		<div class="formGroup field">
 			<input
-				class="form__field"
+				class="formField"
 				type="text"
 				name={$txt.contact.company.key}
 				placeholder={$txt.contact.company.placeholder}
 				required
 				autocomplete="off"
 			/>
-			<label class="form__label" for={$txt.contact.company.key}
+			<label class="formLabel" for={$txt.contact.company.key}
 				>{$txt.contact.company.placeholder}</label
 			>
 		</div>
 
-		<div class="form__group field">
+		<div class="formGroup field">
 			<input
-				class="form__field"
+				class="formField"
 				type="text"
 				name={$txt.contact.website.key}
 				placeholder={$txt.contact.website.placeholder}
 				autocomplete="off"
 			/>
-			<label class="form__label" for={$txt.contact.website.key}
+			<label class="formLabel" for={$txt.contact.website.key}
 				>{$txt.contact.website.placeholder}</label
 			>
 		</div>
@@ -131,46 +128,9 @@
 <style>
 	#contact {
 		position: relative;
-		height: 130vh;
+		height: auto;
+		min-height: 130vh;
 		overflow-x: hidden;
-	}
-
-	.modal {
-		z-index: 5;
-		width: 40vw;
-		height: 30vh;
-		background-color: var(--transparent-primary);
-		border-radius: 50px;
-		border: 1px solid var(--nav-transparent);
-		backdrop-filter: blur(3px);
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		margin: auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-evenly;
-		/* opacity: 0;
-		animation: fadeIn 0.4s forwards; */
-	}
-	.modal p {
-		text-align: center;
-		width: 80%;
-		font-family: K2D;
-		font-size: 1.5em;
-	}
-	.modal button {
-		font-size: 1.5rem;
-	}
-	.modal button:hover .effect {
-		transform: scale(20);
-	}
-	.modal .effect {
-		width: 8px;
-		height: 8px;
 	}
 	h1 {
 		padding-left: 12vw;
@@ -197,7 +157,7 @@
 		cursor: pointer;
 
 		font-family: Raleway;
-		font-size: 2em;
+		font-size: clamp(1.5rem, 1.5rem + 1vw, 2rem);
 		color: var(--secondary-color);
 		border-radius: 100px;
 		padding: 0.5em 1.5em;
@@ -212,6 +172,7 @@
 		justify-content: center;
 		gap: 7px;
 		overflow: hidden;
+		text-align: center;
 	}
 	.text {
 		z-index: 2;
@@ -245,13 +206,13 @@
 	button:active {
 		scale: 0.9;
 	}
-	.form__group {
+	.formGroup {
 		position: relative;
 		padding: 20px 0 0;
 		width: 100%;
 	}
 
-	.form__field {
+	.formField {
 		background-color: var(--primary-color);
 		color: var(--secondary-color);
 		font-family: inherit;
@@ -264,17 +225,17 @@
 		transition: border-color 0.2s;
 	}
 
-	.form__field::placeholder {
+	.formField::placeholder {
 		color: transparent;
 	}
 
-	.form__field:placeholder-shown ~ .form__label {
+	.formField:placeholder-shown ~ .formLabel {
 		font-size: 2em;
 		cursor: text;
 		top: 20px;
 	}
 
-	.form__label {
+	.formLabel {
 		position: absolute;
 		top: 0;
 		display: block;
@@ -284,7 +245,7 @@
 		pointer-events: none;
 	}
 
-	.form__field:focus {
+	.formField:focus {
 		padding-bottom: 6px;
 		font-weight: 700;
 		border-width: 3px;
@@ -292,7 +253,7 @@
 		border-image-slice: 1;
 	}
 
-	.form__field:focus ~ .form__label {
+	.formField:focus ~ .formLabel {
 		position: absolute;
 		top: 0;
 		display: block;
@@ -306,8 +267,67 @@
 	}
 
 	/* reset input */
-	.form__field:required,
-	.form__field:invalid {
+	.formField:required,
+	.formField:invalid {
 		box-shadow: none;
+	}
+	.modal {
+		z-index: 5;
+		width: 40vw;
+		height: 30vh;
+		background-color: var(--transparent-primary);
+		border-radius: 50px;
+		border: 1px solid var(--nav-transparent);
+		backdrop-filter: blur(3px);
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+	.modal p {
+		text-align: center;
+		width: 80%;
+		font-family: K2D;
+		font-size: 1.5em;
+	}
+	.modal button {
+		font-size: 1.5rem;
+	}
+	.modal button:hover .effect {
+		transform: scale(20);
+	}
+	.modal .effect {
+		width: 8px;
+		height: 8px;
+	}
+
+	@media only screen and (max-width: 700px) {
+		#contact {
+			/* min-height: 150vh; */
+			min-height: 1300px;
+		}
+		form {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-evenly;
+		}
+	}
+	@media only screen and (min-width: 700px) and (max-width: 1139px) {
+		form {
+			width: 100%;
+		}
+	}
+	@media only screen and (min-width: 1140px) and (max-width: 1500px) {
+		form {
+			width: 80%;
+		}
 	}
 </style>
