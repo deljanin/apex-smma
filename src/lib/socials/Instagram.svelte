@@ -22,7 +22,7 @@
 <style>
 	svg {
 		width: auto;
-		height: 40px;
+		height: 35px;
 		margin: 0 2px 0 2px;
 	}
 	path {

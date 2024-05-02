@@ -5,8 +5,9 @@
 
 	$: response = null;
 	let modalOpen = false;
-	let modalHeading = 'Hello';
-	let modalText = 'Some text';
+	let modalHeading = 'Message sent';
+	let modalText =
+		'Thank you for contacting us. We will send you a confirmation email with additional information shortly.';
 	async function submitForm(event) {
 		// Collect form data into an object
 		const formData = new FormData(event.target);
@@ -155,7 +156,6 @@
 		border: none;
 		z-index: 2;
 		cursor: pointer;
-
 		font-family: Raleway;
 		font-size: clamp(1.5rem, 1.5rem + 1vw, 2rem);
 		color: var(--secondary-color);
@@ -278,7 +278,7 @@
 		background-color: var(--transparent-primary);
 		border-radius: 50px;
 		border: 1px solid var(--nav-transparent);
-		backdrop-filter: blur(3px);
+		backdrop-filter: blur(5px);
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -293,8 +293,9 @@
 	.modal p {
 		text-align: center;
 		width: 80%;
+		height: auto;
 		font-family: K2D;
-		font-size: 1.5em;
+		font-size: clamp(1rem, 1rem + 0.5vw, 1.5rem);
 	}
 	.modal button {
 		font-size: 1.5rem;
@@ -319,10 +320,17 @@
 			align-items: center;
 			justify-content: space-evenly;
 		}
+		.modal {
+			height: 60vh;
+			width: 80%;
+		}
 	}
 	@media only screen and (min-width: 700px) and (max-width: 1139px) {
 		form {
 			width: 100%;
+		}
+		.modal {
+			height: 50vh;
 		}
 	}
 	@media only screen and (min-width: 1140px) and (max-width: 1500px) {
