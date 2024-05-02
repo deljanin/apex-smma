@@ -4,20 +4,51 @@
 	export let duration = 0.5;
 	export let delayDivisor = 10;
 	initialDelay = initialDelay / 1000;
+
+	let wordLength = txt.split(' ').map((word) => word.length);
+	let counter = new Array(wordLength.length);
+	counter[0] = wordLength[0];
+	for (let i = 1; i < counter.length; i++) {
+		counter[i] = wordLength[i] + counter[i - 1];
+	}
+	counter.unshift(0);
+	counter.pop();
 </script>
 
-{#each txt.split('') as char, i}
-	{#if char === '^'}
+{#each txt.split(' ') as word, i}
+	{#if word.includes('^')}
+		{@const words = word.split('^')}
+		<span>
+			{#each words[0] as char, j}
+				<span
+					style="animation-delay: {0.5 + (j + counter[i]) / delayDivisor}s; --duration: {duration}s"
+					>{char}</span
+				>
+			{/each}
+		</span>
 		<br />
-	{:else if char === ' '}
-		<span style="display: inline;">{char}</span>
+		<span>
+			{#each words[1] as char, j}
+				<span
+					style="animation-delay: {0.5 + (j + counter[i]) / delayDivisor}s; --duration: {duration}s"
+					>{char}</span
+				>
+			{/each}
+		</span>
 	{:else}
-		<span
-			style="animation-delay: {initialDelay + (0.5 + i / delayDivisor)}s; --duration: {duration}s"
-			>{char}</span
-		>
+		<span>
+			{#each word as char, j}
+				<span
+					style="animation-delay: {0.5 + (j + counter[i]) / delayDivisor}s; --duration: {duration}s"
+					>{char}</span
+				>
+			{/each}
+		</span>
 	{/if}
+
+	<span style="display: inline;"> </span>
 {/each}
+<br />
 
 <style>
 	span {

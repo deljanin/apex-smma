@@ -20,23 +20,23 @@
 				<AnimatedPowerText
 					txt={$txt.landing.heading1[0]}
 					duration={1}
-					delayDivisor="50"
+					delayDivisor="25"
 					animationDelay="100"
 				/>
 				<AnimatedText
 					txt={$txt.landing.heading1[1]}
 					duration={1}
-					delayDivisor="50"
+					delayDivisor="25"
 					animationDelay="500"
 				/>
 			</h1>
 		</SmoothAppear>
-		<SmoothAppear delay={1000}>
+		<SmoothAppear delay={100}>
 			<h2>
 				<AnimatedText
 					txt={$txt.landing.heading2}
 					duration={1}
-					delayDivisor="50"
+					delayDivisor="25"
 					initialDelay={500}
 				/>
 			</h2>

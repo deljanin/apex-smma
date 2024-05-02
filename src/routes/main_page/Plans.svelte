@@ -28,10 +28,10 @@
 	const offerIcons = {
 		0: SocialMediaManagement,
 		1: EmailMarketing,
-		2: SEO,
+		2: CommunityManagement,
 		3: ContentCreation,
 		4: WebDev,
-		5: CommunityManagement
+		5: SEO
 	};
 
 	$: descriptions = [];

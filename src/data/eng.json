@@ -59,8 +59,8 @@
 				"description": "Drive customer engagement and boost conversions with personalized email campaigns tailored to your audience's preferences. From impactful subject lines to compelling content, we'll help you deliver messages that resonate and drive action. - <span class='powerText'>Silver Plan</span>"
 			},
 			{
-				"title": "Google SEO",
-				"description": "Boost your online visibility and drive organic traffic to your website with our expert SEO services. From keyword optimization to technical audits, we'll help you climb the search rankings and attract more qualified leads. - <span class='powerText'>Gold Plan</span>"
+				"title": "Community management",
+				"description": "Take your brand's online presence to the next level with our comprehensive community management solutions. Our dedicated team will monitor conversations, respond to inquiries, and proactively engage with your audience to nurture relationships. - <span class='powerText'>Platinum Plan</span>"
 			},
 			{
 				"title": "Content creation",
@@ -71,8 +71,8 @@
 				"description": "From concept to completion, our team will guide you through every step of the website design and development process. With a focus on creativity, functionality, and user experience, we'll create a website that reflects your brand and helps you achieve your business goals. - <span class='powerText'>Platinum Plan</span>"
 			},
 			{
-				"title": "Community management",
-				"description": "Take your brand's online presence to the next level with our comprehensive community management solutions. Our dedicated team will monitor conversations, respond to inquiries, and proactively engage with your audience to nurture relationships. - <span class='powerText'>Platinum Plan</span>"
+				"title": "Google SEO",
+				"description": "Boost your online visibility and drive organic traffic to your website with our expert SEO services. From keyword optimization to technical audits, we'll help you climb the search rankings and attract more qualified leads. - <span class='powerText'>Gold Plan</span>"
 			}
 		]
 	},
