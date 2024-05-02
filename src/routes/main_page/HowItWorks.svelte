@@ -2,47 +2,19 @@
 	import { onMount } from 'svelte';
 	import { txt } from '$lib/utils/context.js';
 	import background from '$lib/assets/howItWorksBg.svg';
-	import AnimatedText from '$lib/animation/AnimatedText.svelte';
-	import viewport from '$lib/utils/observer.js';
-
-	// let spans = [[], [], [], []];
-	// function animateTextOnScroll() {
-	// 	for (let x = 0; x < spans.length; x++)
-	// 		for (let i = 0; i < spans[x].length; i++) {
-	// 			if (spans[x][i].parentElement.getBoundingClientRect().top < window.innerHeight / 2) {
-	// 				let { left, top } = spans[x][i].getBoundingClientRect();
-	// 				top = top - window.innerHeight * 0.5;
-	// 				let opacityValue =
-	// 					1 - (top * 0.02 + left * 0.001) < 0.3
-	// 						? 0.3
-	// 						: 1 - (top * 0.02 + left * 0.001).toFixed(3);
-	// 				opacityValue = opacityValue > 1 ? 1 : opacityValue.toFixed(3);
-	// 				spans[x][i].style.opacity = opacityValue;
-	// 			}
-	// 		}
-	// }
-	let animate = new Array($txt.howItWorks.circles.length);
-	animate.fill(false);
 </script>
 
-<!-- <svelte:window on:scroll={animateTextOnScroll} /> -->
 <div id="services">
 	<h1>{$txt.howItWorks.heading}</h1>
 	{#each $txt.howItWorks.circles as circle, i}
 		<div>
-			<h2
-				use:viewport
-				on:enterViewport={() => {
-					animate[i] = true;
-				}}
-			>
+			<h2>
 				{circle.mainText}
 			</h2>
 			<div class="circles"></div>
 			<div class="vertical_line"></div>
 			<p>
 				{circle.subText}
-				<!-- <AnimatedText txt={circle.subText} delayDivisor="50" animate={animate[i]} /> -->
 			</p>
 		</div>
 	{/each}
@@ -97,7 +69,6 @@
 		width: 17vw;
 	}
 	h2 {
-		/* font-size: 2.5em; */
 		text-align: right;
 	}
 	p {

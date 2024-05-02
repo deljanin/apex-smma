@@ -3,6 +3,7 @@
 	export let initialDelay = 0;
 	export let duration = 0.5;
 	export let delayDivisor = 10;
+
 	initialDelay = initialDelay / 1000;
 
 	let wordLength = txt.split(' ').map((word) => word.length);
@@ -48,10 +49,10 @@
 
 	<span style="display: inline;"> </span>
 {/each}
-<br />
 
 <style>
 	span {
+		z-index: inherit;
 		display: inline-block;
 		position: relative;
 		animation: textAnimation var(--duration) forwards;
@@ -84,7 +85,6 @@
 
 		100% {
 			transform: rotate(0deg);
-
 			bottom: 0;
 			opacity: 1;
 			color: var(--secondary-color);
