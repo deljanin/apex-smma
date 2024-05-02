@@ -101,23 +101,22 @@
 		text-align: right;
 	}
 	p {
-		font-size: 1.5em;
 		text-wrap: pretty;
 	}
 
 	.imgContainer {
 		position: absolute;
-		height: 100%;
+		min-height: 100%;
 		width: 100%;
 		overflow: hidden;
 	}
 	img {
+		object-fit: cover;
 		top: 20vh;
 		width: 115%;
-		height: auto;
+		height: 100%;
 		position: absolute;
 		z-index: -4;
-		/* opacity: 0.15; */
 		opacity: 0.2;
 	}
 	.dark_gradient {
@@ -136,7 +135,21 @@
 		bottom: 0;
 		height: 25vh;
 	}
-	@media only screen and (max-width: 1200px) {
+
+	@media only screen and (max-width: 700px) {
+		div {
+			width: 100%;
+		}
+		h2,
+		p {
+			width: 40%;
+		}
+		.circles {
+			height: 1.5rem;
+			width: 1.5rem;
+		}
+	}
+	@media only screen and (min-width: 700px) and (max-width: 1139px) {
 		div {
 			width: 100%;
 		}

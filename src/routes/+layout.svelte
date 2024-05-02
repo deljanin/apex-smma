@@ -3,6 +3,7 @@
 	injectSpeedInsights();
 
 	import { slide } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
 	import { handleAnchorClick } from '$lib/utils/smoothScroll.js';
 	import logoDark from '$lib/assets/icons/LogoDark.svg';
@@ -44,76 +45,81 @@
 	} else {
 		toggleMenu = false;
 	}
+	let show = false;
+	onMount(() => {
+		show = true;
+	});
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerWidth />
-
-<nav class:navSticky class:navAnimate>
-	<div class:toggleBorder>
-		<a href="/">
-			<img src={logoDark} alt="Logo" />
-		</a>
-		{#if toggleMenu}
-			<ul transition:slide>
-				{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
-					{#each $txt.navbarAlt as link}
-						<li><a href={link.link}>{link.text}</a></li>
-					{/each}
-				{:else}
-					{#each $txt.navbar as link}
-						<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
-					{/each}
-				{/if}
-			</ul>
-		{/if}
-		<div>
-			<button on:click={handleLanguageChange}>
-				<img src={langIcon} alt="Language change button" />
-			</button>
-			{#if innerWidth < 701}
-				<!-- Ova vrednost je 701 zbog dropdowna koji ne postoji na sirini od 700px inace -->
-				<div class="menuButton">
-					<input
-						type="checkbox"
-						id="checkbox"
-						on:click={() => {
-							toggleMenu = !toggleMenu;
-							toggleBorder = !toggleBorder;
-						}}
-					/>
-					<label for="checkbox" class="toggle">
-						<div class="bar bar--top"></div>
-						<div class="bar bar--middle"></div>
-						<div class="bar bar--bottom"></div>
-					</label>
-				</div>
+{#if show}
+	<nav class:navSticky class:navAnimate>
+		<div class:toggleBorder>
+			<a href="/">
+				<img src={logoDark} alt="Logo" />
+			</a>
+			{#if toggleMenu}
+				<ul transition:slide>
+					{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
+						{#each $txt.navbarAlt as link}
+							<li><a href={link.link}>{link.text}</a></li>
+						{/each}
+					{:else}
+						{#each $txt.navbar as link}
+							<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
+						{/each}
+					{/if}
+				</ul>
 			{/if}
+			<div>
+				<button on:click={handleLanguageChange}>
+					<img src={langIcon} alt="Language change button" />
+				</button>
+				{#if innerWidth < 701}
+					<!-- Ova vrednost je 701 zbog dropdowna koji ne postoji na sirini od 700px inace -->
+					<div class="menuButton">
+						<input
+							type="checkbox"
+							id="checkbox"
+							on:click={() => {
+								toggleMenu = !toggleMenu;
+								toggleBorder = !toggleBorder;
+							}}
+						/>
+						<label for="checkbox" class="toggle">
+							<div class="bar bar--top"></div>
+							<div class="bar bar--middle"></div>
+							<div class="bar bar--bottom"></div>
+						</label>
+					</div>
+				{/if}
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
-<slot />
+	<slot />
 
-<div class="footer">
-	<div>
+	<div class="footer">
 		<div>
-			<InstagramIcon />
-			<TelegramIcon />
-			<FacebookIcon />
-			<LinkedInIcon />
-			<XIcon />
-		</div>
-		<a href="/privacy_policy">{$txt.footer.ppolicy}</a>
-		<a href="/terms_and_conditions">{$txt.footer.terms}</a>
+			<div>
+				<InstagramIcon />
+				<TelegramIcon />
+				<FacebookIcon />
+				<LinkedInIcon />
+				<XIcon />
+			</div>
+			<a href="/privacy_policy">{$txt.footer.ppolicy}</a>
+			<a href="/terms_and_conditions">{$txt.footer.terms}</a>
 
-		{$txt.footer.rights}
+			{$txt.footer.rights}
+		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	.navAnimate {
 		opacity: 0;
-		animation: navbarAnimation 1s 5s forwards;
+		animation: navbarAnimation 1s 6s forwards;
 	}
 	.navSticky {
 		position: fixed;
@@ -154,7 +160,7 @@
 		backdrop-filter: blur(15px);
 		transition: all 0.4s;
 		opacity: 0;
-		animation: navbarAnimation 1s 5s forwards;
+		animation: navbarAnimation 1s 6s forwards;
 	}
 	@keyframes navbarAnimation {
 		from {

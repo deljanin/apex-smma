@@ -295,7 +295,6 @@
 		width: 80%;
 		height: auto;
 		font-family: K2D;
-		font-size: clamp(1rem, 1rem + 0.5vw, 1.5rem);
 	}
 	.modal button {
 		font-size: 1.5rem;

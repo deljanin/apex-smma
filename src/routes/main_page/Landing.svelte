@@ -149,7 +149,7 @@
 		z-index: 0;
 		position: absolute;
 		top: 5%;
-		max-width: 50em;
+		max-width: 50rem;
 		left: 0;
 		right: 0;
 		margin-left: auto;
@@ -171,7 +171,6 @@
 		}
 		.dots_wrapper {
 			width: 650px;
-
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);

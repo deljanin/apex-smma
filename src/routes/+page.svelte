@@ -7,21 +7,17 @@
 	import CustomCursor from '$lib/components/customCursor.svelte';
 	import { onMount } from 'svelte';
 	let isPC = false;
-	let show = false;
 	onMount(() => {
 		isPC = window.innerWidth > 768;
-		show = true;
 	});
 </script>
 
-{#if show}
-	{#if isPC}
-		<!-- <CustomCursor /> -->
-	{/if}
-
-	<Landing />
-	<!-- <HowItWorks /> -->
-	<Offers />
-	<!-- <Plans /> -->
-	<Contact />
+{#if isPC}
+	<!-- <CustomCursor /> -->
 {/if}
+
+<Landing />
+<HowItWorks />
+<Offers />
+<!-- <Plans /> -->
+<Contact />

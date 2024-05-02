@@ -8,12 +8,12 @@
 	}, delay);
 </script>
 
-<span class:animate class="block" style="--duration: {duration}">
+<span class:animate style="--duration: {duration}">
 	<slot />
 </span>
 
 <style>
-	.block {
+	span {
 		opacity: 0;
 	}
 	.animate {
