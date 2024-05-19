@@ -77,12 +77,11 @@
 
 	.imgContainer {
 		position: absolute;
-		min-height: 100%;
+		height: 100%;
 		width: 100%;
 		overflow: hidden;
 	}
 	img {
-		object-fit: cover;
 		top: 20vh;
 		width: 115%;
 		height: 100%;
@@ -97,7 +96,7 @@
 	}
 	.dark_gradient.first {
 		background: var(--shadow-gradient-top);
-		height: 35vh;
+		height: 40vh;
 		top: 0;
 	}
 
@@ -108,6 +107,9 @@
 	}
 
 	@media only screen and (max-width: 700px) {
+		img {
+			object-fit: cover;
+		}
 		div {
 			width: 100%;
 		}
@@ -121,6 +123,9 @@
 		}
 	}
 	@media only screen and (min-width: 700px) and (max-width: 1139px) {
+		img {
+			object-fit: cover;
+		}
 		div {
 			width: 100%;
 		}

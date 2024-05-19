@@ -3,7 +3,8 @@
 	injectSpeedInsights();
 
 	import { slide } from 'svelte/transition';
-	import { onMount } from 'svelte';
+	// import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	import { handleAnchorClick } from '$lib/utils/smoothScroll.js';
 	import logoDark from '$lib/assets/icons/LogoDark.svg';
@@ -18,11 +19,10 @@
 
 	import { txt } from '$lib/utils/context.js';
 	import { page } from '$app/stores';
-	var lng = 'en';
-	function handleLanguageChange() {
-		lng = lng === 'en' ? 'sr' : 'en';
-		txt.set(languageData[lng]);
-	}
+
+	$: language = $page.params.slug;
+	$: txt.set(languageData[language]);
+
 	let y = 0;
 	let navSticky;
 	let innerWidth;
@@ -45,17 +45,24 @@
 	} else {
 		toggleMenu = false;
 	}
-	let show = false;
-	onMount(() => {
-		show = true;
+	let visible = false;
+	// onMount(() => {
+	// let browserLanguage = window.navigator.language;
+	// console.log(browserLanguage);
+
+	// });
+	afterNavigate(({ from }) => {
+		if (from === null) {
+			visible = true;
+		}
 	});
 </script>
 
 <svelte:window bind:scrollY={y} bind:innerWidth />
-{#if show}
+{#if visible}
 	<nav class:navSticky class:navAnimate>
 		<div class:toggleBorder>
-			<a href="/">
+			<a class="logo" href="/">
 				<img src={logoDark} alt="Logo" />
 			</a>
 			{#if toggleMenu}
@@ -72,9 +79,9 @@
 				</ul>
 			{/if}
 			<div>
-				<button on:click={handleLanguageChange}>
+				<a class="langauge" href={language === 'en' ? '/sr' : '/en'}>
 					<img src={langIcon} alt="Language change button" />
-				</button>
+				</a>
 				{#if innerWidth < 701}
 					<!-- Ova vrednost je 701 zbog dropdowna koji ne postoji na sirini od 700px inace -->
 					<div class="menuButton">
@@ -171,13 +178,12 @@
 			opacity: 1;
 		}
 	}
-	nav a > img {
-		width: 60px;
+	.logo {
+		width: 55px;
 		height: auto;
 	}
 	nav img {
 		cursor: pointer;
-		width: 50px;
 	}
 	ul {
 		width: 70%;
@@ -202,7 +208,10 @@
 		color: var(--secondary-color);
 		transition: color 0.4s;
 	}
-	nav button {
+	.langauge {
+		height: 50px;
+	}
+	.langauge img {
 		height: 50px;
 	}
 	nav > div > div {
