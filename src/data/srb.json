@@ -77,7 +77,7 @@
 		]
 	},
 	"contact": {
-		"heading": "Contact us",
+		"heading": "Kontaktirajte nas",
 		"name": { "key": "name", "placeholder": "Ime" },
 		"surname": { "key": "surname", "placeholder": "Prezime" },
 		"email": { "key": "email", "placeholder": "Email addresa" },
