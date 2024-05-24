@@ -52,27 +52,43 @@
 		"offerings": [
 			{
 				"title": "Upravljanje društvenim mrežama",
-				"description": "Osvežite vaš online uticaj pažljivo kreiranim sadržajem, i strategijskim rasporedom. Dopustite nama da se bavimo kompleksnostima društvenih medija dok se vi fokusirate na ono što je najvažnije rast vašeg brenda i povezivanje sa vašom publikom. - <span class='powerText'>Srebrni Plan</span>"
+				"description": [
+					"Osvežite vaš online uticaj pažljivo kreiranim sadržajem, i strategijskim rasporedom. Dopustite nama da se bavimo kompleksnostima društvenih medija dok se vi fokusirate na ono što je najvažnije rast vašeg brenda i povezivanje sa vašom publikom. - <span class='powerText'>Srebrni Plan</span>"
+				]
 			},
 			{
 				"title": "Email marketing",
-				"description": "Povećajte angažovanost korisnika i poboljšajte konverzije sa personalizovanim email kampanjama prilagođenim vašoj publici. Od efektnih naslova do upečatljivog sadržaja, pomoći ćemo vam da prenesete poruku koja će odjekivati. - <span class='powerText'>Srebrni Plan</span>"
+				"description": [
+					"Povećajte angažovanost korisnika i poboljšajte konverzije sa personalizovanim email kampanjama prilagođenim vašoj publici. Od efektnih naslova do upečatljivog sadržaja, pomoći ćemo vam da prenesete poruku koja će odjekivati. - <span class='powerText'>Srebrni Plan</span>"
+				]
 			},
 			{
 				"title": "Interakcije sa vašim klijentima",
-				"description": "Podignite online prisustvo vašeg brenda na sledeći nivo uz naša sveobuhvatna rešenja za upravljanje odnosa sa vašim klijentima. Naš posvećeni tim će pratiti razgovore, odgovarati na pitanja i aktivno raditi sa vašom publikom kako bi negovali odnose. - <span class='powerText'>Platinum Plan</span>"
+				"description": [
+					"Podignite online prisustvo vašeg brenda na sledeći nivo uz naša sveobuhvatna rešenja za upravljanje odnosa sa vašim klijentima. Naš posvećeni tim će pratiti razgovore, odgovarati na pitanja i aktivno raditi sa vašom publikom kako bi negovali odnose. - <span class='powerText'>Zlatni Plan</span>",
+					"(Uključuje sve usluge iz Srebrnog plana.)"
+				]
 			},
 			{
 				"title": "Kreiranje kreativnog sadržaja",
-				"description": "Istaknite se u gužvi digitalne scene sa našim pažljivo osmišljenim sadržajem. Od zanimljivih blog postova do privlačnog video sadržaja, kreiraćemo uzbudljiv materijal koji dopreti do vaše publike i uspostaviti značajne veze. - <span class='powerText'>Zlatni Plan</span>"
+				"description": [
+					"Istaknite se u gužvi digitalne scene sa našim pažljivo osmišljenim sadržajem. Od zanimljivih blog postova do privlačnog video sadržaja, kreiraćemo uzbudljiv materijal koji dopreti do vaše publike i uspostaviti značajne veze. - <span class='powerText'>Zlatni Plan</span>",
+					"(Uključuje sve usluge iz Srebrnog plana.)"
+				]
 			},
 			{
 				"title": "Dizajn, izrada i održavanje sajta",
-				"description": "Od koncepta do završne izrade, naš tim će vas voditi kroz svaki korak procesa dizajna i razvoja web sajta. Sa fokusom na kreativnosti, funkcionalnosti i korisničkom iskustvu, kreiraćemo web sajt koji odražava vaš brend i pomaže vam da ostvarite poslovne ciljeve. - <span class='powerText'>Platinum Plan</span>"
+				"description": [
+					"Od koncepta do završne izrade, naš tim će vas voditi kroz svaki korak procesa dizajna i razvoja web sajta. Sa fokusom na kreativnosti, funkcionalnosti i korisničkom iskustvu, kreiraćemo web sajt koji odražava vaš brend i pomaže vam da ostvarite poslovne ciljeve. - <span class='powerText'>Platinum Plan</span>",
+					"(Uključuje sve usluge iz Srebrnog i Zlatnog plana.)"
+				]
 			},
 			{
 				"title": "Google SEO",
-				"description": "Povećajte vidljivost i privucite organski saobraćaj ka vašem sajtu uz naše stručne SEO usluge. Od optimizacije ključnih reči do tehničkih analiza, pomoći ćemo vam da se popnete na listi pretrage i privučete više kvalifikovanih potencijalnih korisnika. - <span class='powerText'>Zlatni Plan</span>"
+				"description": [
+					"Povećajte vidljivost i privucite organski saobraćaj ka vašem sajtu uz naše stručne SEO usluge. Od optimizacije ključnih reči do tehničkih analiza, pomoći ćemo vam da se popnete na listi pretrage i privučete više kvalifikovanih potencijalnih korisnika. - <span class='powerText'>Platinum Plan</span>",
+					"(Uključuje sve usluge iz Srebrnog i Zlatnog plana.)"
+				]
 			}
 		]
 	},

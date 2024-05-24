@@ -117,7 +117,7 @@
 						<h2>{offer.title}</h2>
 					</div>
 					{#if descriptions[i]}
-						<p transition:slide>{@html offer.description}</p>
+						<p transition:slide>{@html offer.description[0]}</p>
 					{/if}
 				</button>
 			{:else if (i === 2 || i === 3) && isVisibleGoldPlan}
@@ -127,7 +127,10 @@
 						<h2>{offer.title}</h2>
 					</div>
 					{#if descriptions[i]}
-						<p transition:slide>{@html offer.description}</p>
+						<p transition:slide>
+							{@html offer.description[0]}
+							<span class="description-tiny-text">{offer.description[1]}</span>
+						</p>
 					{/if}
 				</button>
 			{:else if (i === 4 || i === 5) && isVisiblePlatinumPlan}
@@ -137,7 +140,10 @@
 						<h2>{offer.title}</h2>
 					</div>
 					{#if descriptions[i]}
-						<p transition:slide>{@html offer.description}</p>
+						<p transition:slide>
+							{@html offer.description[0]}
+							<span class="description-tiny-text">{offer.description[1]}</span>
+						</p>
 					{/if}
 				</button>
 			{/if}
@@ -211,8 +217,15 @@
 		cursor: default;
 		padding-top: 1vh;
 		font-family: K2D;
-		font-size: 1.5em;
+		font-size: 1.5rem;
 		width: 39vw;
+	}
+	p span {
+		cursor: default;
+		padding-top: 1vh;
+		font-family: K2D;
+		font-size: 1.25rem;
+		opacity: 0.3;
 	}
 	.plans-static img {
 		width: 12%;
@@ -244,6 +257,7 @@
 		font-size: 2rem;
 		display: block;
 	}
+
 	.plan-circle img {
 		width: 50%;
 		height: auto;
