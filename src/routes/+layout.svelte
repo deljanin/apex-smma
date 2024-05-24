@@ -62,7 +62,7 @@
 {#if visible}
 	<nav class:navSticky class:navAnimate>
 		<div class:toggleBorder>
-			<a class="logo" href="/">
+			<a class="logo" href={language === 'en' ? '/en' : '/sr'}>
 				<img src={logoDark} alt="Logo" />
 			</a>
 			{#if toggleMenu}
@@ -115,8 +115,12 @@
 				<LinkedInIcon />
 				<XIcon />
 			</div>
-			<a href="/privacy_policy">{$txt.footer.ppolicy}</a>
-			<a href="/terms_and_conditions">{$txt.footer.terms}</a>
+			<!-- <a href="/privacy_policy"> -->
+			<span>{$txt.footer.ppolicy}</span>
+			<!-- </a> -->
+			<!-- <a href="/terms_and_conditions"> -->
+			<span>{$txt.footer.terms}</span>
+			<!-- </a> -->
 
 			{$txt.footer.rights}
 		</div>
