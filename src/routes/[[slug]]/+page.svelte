@@ -9,7 +9,7 @@
 
 	let isPC = false;
 	onMount(() => {
-		isPC = window.innerWidth > 768;
+		isPC = window.innerWidth > 1200;
 	});
 </script>
 

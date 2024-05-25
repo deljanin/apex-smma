@@ -95,6 +95,7 @@
 		width: 100%;
 	}
 	.dark_gradient.first {
+		z-index: -3;
 		background: var(--shadow-gradient-top);
 		height: 40vh;
 		top: 0;
@@ -112,6 +113,7 @@
 		}
 		div {
 			width: 100%;
+			height: 40vh;
 		}
 		h2,
 		p {
@@ -128,10 +130,16 @@
 		}
 		div {
 			width: 100%;
+			height: 40vh;
 		}
 		h2,
 		p {
 			width: 33%;
+		}
+	}
+	@media only screen and (min-width: 1140px) and (max-width: 1400px) {
+		div {
+			height: 40vh;
 		}
 	}
 </style>
