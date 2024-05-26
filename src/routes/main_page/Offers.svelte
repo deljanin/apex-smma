@@ -15,25 +15,29 @@
 		1: '#gold-plan',
 		2: '#platinum-plan'
 	};
+	let innerWidth;
 </script>
 
-<div id="offers">
-	<h1>{$txt.whatWeOffer.heading}</h1>
-	<div class="cards">
-		{#each $txt.whatWeOffer.cards as card, i}
-			<div class="group">
-				<div class={`vertical-line l${i}`}></div>
-				<a href={links[i]} on:click={handleAnchorClickCenter}>
-					<div class="card">
-						<div><img src={icons[i]} alt={card.frontText} /></div>
-						<span class="powerText frontText">{card.frontText}</span>
-						<span class="backText">{card.backText}</span>
-					</div>
-				</a>
-			</div>
-		{/each}
+<svelte:window bind:innerWidth />
+{#if innerWidth > 1200}
+	<div id="offers">
+		<h1>{$txt.whatWeOffer.heading}</h1>
+		<div class="cards">
+			{#each $txt.whatWeOffer.cards as card, i}
+				<div class="group">
+					<div class={`vertical-line l${i}`}></div>
+					<a href={links[i]} on:click={handleAnchorClickCenter}>
+						<div class="card">
+							<div><img src={icons[i]} alt={card.frontText} /></div>
+							<span class="powerText frontText">{card.frontText}</span>
+							<span class="backText">{card.backText}</span>
+						</div>
+					</a>
+				</div>
+			{/each}
+		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	#offers {
