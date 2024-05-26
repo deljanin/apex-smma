@@ -169,60 +169,62 @@
 		</div>
 	</div>
 {:else}
-	<div class="mobile-container">
-		{#each $txt.whatWeOffer.cards as circle, i}
-			<div class="plan-circle" id={links[i]}>
-				<img src={icons[i]} alt={circle.frontText} />
-				<span class="powerText">{circle.frontText}</span>
-			</div>
-			<div class="mobile-plan-group">
-				{#each $txt.whatWeOffer.offerings as offer, j}
-					{#if i === 0 && [0, 1].includes(j)}
-						<button
-							id={`plan-group-${i}-${j}`}
-							on:click={() => showDescription(`mobile-silver-${i}-${j}`)}
-							transition:scale
-						>
-							<div class="mobile-offer">
-								<img class="graphics" src={offerIcons[j]} alt={offer.title} />
-								<h2>{offer.title}</h2>
-							</div>
-							{#if descriptions[`mobile-silver-${i}-${j}`]}
-								<p transition:slide>{@html offer.description[0]}</p>
-							{/if}
-						</button>
-					{:else if i === 1 && [0, 1, 2, 3].includes(j)}
-						<button
-							id={`plan-group-${i}-${j}`}
-							on:click={() => showDescription(`mobile-gold-${i}-${j}`)}
-							transition:scale
-						>
-							<div class="mobile-offer">
-								<img class="graphics" src={offerIcons[j]} alt={offer.title} />
-								<h2>{offer.title}</h2>
-							</div>
-							{#if descriptions[`mobile-gold-${i}-${j}`]}
-								<p transition:slide>{@html offer.description[0]}</p>
-							{/if}
-						</button>
-					{:else if i === 2}
-						<button
-							id={`plan-group-${i}-${j}`}
-							on:click={() => showDescription(`mobile-platinum-${i}-${j}`)}
-							transition:scale
-						>
-							<div class="mobile-offer">
-								<img class="graphics" src={offerIcons[j]} alt={offer.title} />
-								<h2>{offer.title}</h2>
-							</div>
-							{#if descriptions[`mobile-platinum-${i}-${j}`]}
-								<p transition:slide>{@html offer.description[0]}</p>
-							{/if}
-						</button>
-					{/if}
-				{/each}
-			</div>
-		{/each}
+	<div id="offers">
+		<div class="mobile-container">
+			{#each $txt.whatWeOffer.cards as circle, i}
+				<div class="plan-circle" id={links[i]}>
+					<img src={icons[i]} alt={circle.frontText} />
+					<span class="powerText">{circle.frontText}</span>
+				</div>
+				<div class="mobile-plan-group">
+					{#each $txt.whatWeOffer.offerings as offer, j}
+						{#if i === 0 && [0, 1].includes(j)}
+							<button
+								id={`plan-group-${i}-${j}`}
+								on:click={() => showDescription(`mobile-silver-${i}-${j}`)}
+								transition:scale
+							>
+								<div class="mobile-offer">
+									<img class="graphics" src={offerIcons[j]} alt={offer.title} />
+									<h2>{offer.title}</h2>
+								</div>
+								{#if descriptions[`mobile-silver-${i}-${j}`]}
+									<p transition:slide>{@html offer.description[0]}</p>
+								{/if}
+							</button>
+						{:else if i === 1 && [0, 1, 2, 3].includes(j)}
+							<button
+								id={`plan-group-${i}-${j}`}
+								on:click={() => showDescription(`mobile-gold-${i}-${j}`)}
+								transition:scale
+							>
+								<div class="mobile-offer">
+									<img class="graphics" src={offerIcons[j]} alt={offer.title} />
+									<h2>{offer.title}</h2>
+								</div>
+								{#if descriptions[`mobile-gold-${i}-${j}`]}
+									<p transition:slide>{@html offer.description[0]}</p>
+								{/if}
+							</button>
+						{:else if i === 2}
+							<button
+								id={`plan-group-${i}-${j}`}
+								on:click={() => showDescription(`mobile-platinum-${i}-${j}`)}
+								transition:scale
+							>
+								<div class="mobile-offer">
+									<img class="graphics" src={offerIcons[j]} alt={offer.title} />
+									<h2>{offer.title}</h2>
+								</div>
+								{#if descriptions[`mobile-platinum-${i}-${j}`]}
+									<p transition:slide>{@html offer.description[0]}</p>
+								{/if}
+							</button>
+						{/if}
+					{/each}
+				</div>
+			{/each}
+		</div>
 	</div>
 {/if}
 
@@ -309,7 +311,6 @@
 	h2 {
 		width: 100%;
 		font-family: K2D;
-		font-size: 2em;
 	}
 
 	.plan-circle {
@@ -329,7 +330,7 @@
 	}
 	span {
 		font-family: Raleway;
-		font-size: 2rem;
+		font-size: clamp(1.6rem, 1.2rem + 1vw, 2rem);
 		display: block;
 	}
 
@@ -351,7 +352,8 @@
 		height: auto;
 	}
 	.mobile-plan-group {
-		width: 80%;
+		min-width: fit-content;
+		padding: 0 10%;
 		display: flex;
 		flex-direction: column;
 		gap: 1.5vh;
@@ -364,7 +366,20 @@
 		align-items: center;
 		gap: 1rem;
 	}
-	@media only screen and (max-width: 1139px) {
+
+	@media only screen and (max-width: 700px) {
+		.plan-circle {
+			width: 30vh;
+			height: 30vh;
+		}
+		.plan-circle img {
+			width: 35%;
+		}
+	}
+	@media only screen and (max-width: 1200px) {
+		.graphics {
+			width: 60px;
+		}
 		.plans-scroll > img {
 			display: none;
 		}
