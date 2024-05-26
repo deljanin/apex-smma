@@ -356,6 +356,9 @@
 			bottom: 0;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
 			flex-direction: column;
 			justify-content: space-evenly;
 			gap: 1vh;
@@ -368,6 +371,9 @@
 			bottom: 0;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
 		}
 	}
 	@media only screen and (min-width: 700px) and (max-width: 1139px) {

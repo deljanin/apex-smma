@@ -354,7 +354,7 @@
 		width: 80%;
 		display: flex;
 		flex-direction: column;
-		/* align-items: center; */
+		gap: 1.5vh;
 	}
 	.mobile-plan-group p {
 		width: 100%;
