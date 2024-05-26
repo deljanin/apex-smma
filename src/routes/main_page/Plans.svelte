@@ -19,6 +19,8 @@
 	import v2 from '$lib/assets/Vector-2.svg';
 	import v3 from '$lib/assets/Vector-3.svg';
 
+	let innerWidth;
+
 	const icons = {
 		0: SilverPlanIcon,
 		1: GoldPlanIcon,
@@ -34,19 +36,21 @@
 		5: SEO
 	};
 
-	$: descriptions = [];
-	$: for (let i = 0; i < Object.keys($txt.whatWeOffer.offerings).length; i++) {
-		descriptions[i] = false;
-	}
+	$: descriptions = {};
 	$: openDescription = null;
 
 	function showDescription(id) {
 		if (openDescription !== id) {
-			descriptions[openDescription] = false;
+			if (openDescription !== null) {
+				descriptions[openDescription] = false;
+			}
 			descriptions[id] = true;
 			openDescription = id;
 		} else {
-			descriptions[openDescription] = !descriptions[openDescription];
+			descriptions[id] = !descriptions[id];
+			if (!descriptions[id]) {
+				openDescription = null;
+			}
 		}
 	}
 	$: isVisibleSilverPlan = false;
@@ -75,81 +79,158 @@
 	}
 </script>
 
-<div
-	class="magicDiv"
-	use:viewport
-	on:enterViewport={() => {
-		changeVisible('magicDiv', true);
-	}}
-	on:exitViewport={() => {
-		changeVisible('magicDiv', false);
-	}}
-></div>
-<div id="plans">
-	<div class="plans-scroll">
-		<img id="v0" src={v0} alt="Hand vector 1" />
-		<img id="v1" src={v1} alt="Hand vector 2" />
-		<img id="v2" src={v2} alt="Hand vector 3" />
-		<img id="v3" src={v3} alt="Hand vector 4" />
+<svelte:window bind:innerWidth />
+{#if innerWidth > 1200}
+	<div
+		class="magicDiv"
+		use:viewport
+		on:enterViewport={() => {
+			changeVisible('magicDiv', true);
+		}}
+		on:exitViewport={() => {
+			changeVisible('magicDiv', false);
+		}}
+	></div>
+	<div id="plans">
+		<div class="plans-scroll">
+			<img id="v0" src={v0} alt="Hand vector 1" />
+			<img id="v1" src={v1} alt="Hand vector 2" />
+			<img id="v2" src={v2} alt="Hand vector 3" />
+			<img id="v3" src={v3} alt="Hand vector 4" />
+			{#each $txt.whatWeOffer.cards as circle, i}
+				<div
+					class="plan-circle"
+					id={links[i]}
+					use:viewport
+					on:enterViewport={() => {
+						changeVisible(links[i], true);
+					}}
+					on:exitViewport={() => {
+						changeVisible(links[i], false);
+					}}
+				>
+					<img src={icons[i]} alt={circle.frontText} />
+					<span class="powerText">{circle.frontText}</span>
+				</div>
+			{/each}
+		</div>
+		<div class="plans-static">
+			{#each $txt.whatWeOffer.offerings as offer, i}
+				{#if (i === 0 || i === 1) && isVisibleSilverPlan}
+					{#each Array(1) as _, j}
+						<button
+							id={`plan-group-${i}-${j}`}
+							on:click={() => showDescription(`silver-${i}-${j}`)}
+							transition:scale
+						>
+							<div>
+								<img src={offerIcons[i]} alt={offer.title} />
+								<h2>{offer.title}</h2>
+							</div>
+							{#if descriptions[`silver-${i}-${j}`]}
+								<p transition:slide>{@html offer.description[0]}</p>
+							{/if}
+						</button>
+					{/each}
+				{:else if (i === 2 || i === 3) && isVisibleGoldPlan}
+					{#each Array(1) as _, j}
+						<button
+							id={`plan-group-${i}-${j}`}
+							on:click={() => showDescription(`gold-${i}-${j}`)}
+							transition:scale
+						>
+							<div>
+								<img src={offerIcons[i]} alt={offer.title} />
+								<h2>{offer.title}</h2>
+							</div>
+							{#if descriptions[`gold-${i}-${j}`]}
+								<p transition:slide>
+									{@html offer.description[0]}
+									<span class="description-tiny-text">{offer.description[1]}</span>
+								</p>
+							{/if}
+						</button>
+					{/each}
+				{:else if (i === 4 || i === 5) && isVisiblePlatinumPlan}
+					{#each Array(1) as _, j}
+						<button
+							id={`plan-group-${i}-${j}`}
+							on:click={() => showDescription(`platinum-${i}-${j}`)}
+							transition:scale
+						>
+							<div>
+								<img src={offerIcons[i]} alt={offer.title} />
+								<h2>{offer.title}</h2>
+							</div>
+							{#if descriptions[`platinum-${i}-${j}`]}
+								<p transition:slide>
+									{@html offer.description[0]}
+									<span class="description-tiny-text">{offer.description[1]}</span>
+								</p>
+							{/if}
+						</button>
+					{/each}
+				{/if}
+			{/each}
+		</div>
+	</div>
+{:else}
+	<div class="mobile-container">
 		{#each $txt.whatWeOffer.cards as circle, i}
-			<div
-				class="plan-circle"
-				id={links[i]}
-				use:viewport
-				on:enterViewport={() => {
-					changeVisible(links[i], true);
-				}}
-				on:exitViewport={() => {
-					changeVisible(links[i], false);
-				}}
-			>
+			<div class="plan-circle" id={links[i]}>
 				<img src={icons[i]} alt={circle.frontText} />
 				<span class="powerText">{circle.frontText}</span>
 			</div>
+			<div class="mobile-plan-group">
+				{#each $txt.whatWeOffer.offerings as offer, j}
+					{#if i === 0 && [0, 1].includes(j)}
+						<button
+							id={`plan-group-${i}-${j}`}
+							on:click={() => showDescription(`mobile-silver-${i}-${j}`)}
+							transition:scale
+						>
+							<div class="mobile-offer">
+								<img class="graphics" src={offerIcons[j]} alt={offer.title} />
+								<h2>{offer.title}</h2>
+							</div>
+							{#if descriptions[`mobile-silver-${i}-${j}`]}
+								<p transition:slide>{@html offer.description[0]}</p>
+							{/if}
+						</button>
+					{:else if i === 1 && [0, 1, 2, 3].includes(j)}
+						<button
+							id={`plan-group-${i}-${j}`}
+							on:click={() => showDescription(`mobile-gold-${i}-${j}`)}
+							transition:scale
+						>
+							<div class="mobile-offer">
+								<img class="graphics" src={offerIcons[j]} alt={offer.title} />
+								<h2>{offer.title}</h2>
+							</div>
+							{#if descriptions[`mobile-gold-${i}-${j}`]}
+								<p transition:slide>{@html offer.description[0]}</p>
+							{/if}
+						</button>
+					{:else if i === 2}
+						<button
+							id={`plan-group-${i}-${j}`}
+							on:click={() => showDescription(`mobile-platinum-${i}-${j}`)}
+							transition:scale
+						>
+							<div class="mobile-offer">
+								<img class="graphics" src={offerIcons[j]} alt={offer.title} />
+								<h2>{offer.title}</h2>
+							</div>
+							{#if descriptions[`mobile-platinum-${i}-${j}`]}
+								<p transition:slide>{@html offer.description[0]}</p>
+							{/if}
+						</button>
+					{/if}
+				{/each}
+			</div>
 		{/each}
 	</div>
-	<div class="plans-static">
-		{#each $txt.whatWeOffer.offerings as offer, i}
-			{#if (i === 0 || i === 1) && isVisibleSilverPlan}
-				<button id={`plan-group${i}`} on:click={() => showDescription(i)} transition:scale>
-					<div>
-						<img src={offerIcons[i]} alt={offer.title} />
-						<h2>{offer.title}</h2>
-					</div>
-					{#if descriptions[i]}
-						<p transition:slide>{@html offer.description[0]}</p>
-					{/if}
-				</button>
-			{:else if (i === 2 || i === 3) && isVisibleGoldPlan}
-				<button id={`plan-group${i}`} on:click={() => showDescription(i)} transition:scale>
-					<div>
-						<img src={offerIcons[i]} alt={offer.title} />
-						<h2>{offer.title}</h2>
-					</div>
-					{#if descriptions[i]}
-						<p transition:slide>
-							{@html offer.description[0]}
-							<span class="description-tiny-text">{offer.description[1]}</span>
-						</p>
-					{/if}
-				</button>
-			{:else if (i === 4 || i === 5) && isVisiblePlatinumPlan}
-				<button id={`plan-group${i}`} on:click={() => showDescription(i)} transition:scale>
-					<div>
-						<img src={offerIcons[i]} alt={offer.title} />
-						<h2>{offer.title}</h2>
-					</div>
-					{#if descriptions[i]}
-						<p transition:slide>
-							{@html offer.description[0]}
-							<span class="description-tiny-text">{offer.description[1]}</span>
-						</p>
-					{/if}
-				</button>
-			{/if}
-		{/each}
-	</div>
-</div>
+{/if}
 
 <style>
 	#plans {
@@ -238,8 +319,8 @@
 	}
 
 	.plan-circle {
-		width: 17.5vw;
-		height: 17.5vw;
+		width: 37vh;
+		height: 37vh;
 		border: 1px solid var(--nav-transparent);
 		text-align: center;
 		border-radius: 50%;
@@ -261,6 +342,29 @@
 	.plan-circle img {
 		width: 50%;
 		height: auto;
+	}
+
+	.mobile-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 5vh;
+		padding-top: 15vh;
+	}
+	.graphics {
+		width: 75px;
+		height: auto;
+	}
+	.mobile-plan-group {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		/* align-items: center; */
+	}
+	.mobile-offer {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
 	}
 	@media only screen and (max-width: 1139px) {
 		.plans-scroll > img {
