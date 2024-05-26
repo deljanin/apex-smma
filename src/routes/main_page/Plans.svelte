@@ -117,59 +117,53 @@
 		<div class="plans-static">
 			{#each $txt.whatWeOffer.offerings as offer, i}
 				{#if (i === 0 || i === 1) && isVisibleSilverPlan}
-					{#each Array(1) as _, j}
-						<button
-							id={`plan-group-${i}-${j}`}
-							on:click={() => showDescription(`silver-${i}-${j}`)}
-							transition:scale
-						>
-							<div>
-								<img src={offerIcons[i]} alt={offer.title} />
-								<h2>{offer.title}</h2>
-							</div>
-							{#if descriptions[`silver-${i}-${j}`]}
-								<p transition:slide>{@html offer.description[0]}</p>
-							{/if}
-						</button>
-					{/each}
+					<button
+						id={`plan-group-${i}`}
+						on:click={() => showDescription(`silver-${i}`)}
+						transition:scale
+					>
+						<div>
+							<img src={offerIcons[i]} alt={offer.title} />
+							<h2>{offer.title}</h2>
+						</div>
+						{#if descriptions[`silver-${i}`]}
+							<p transition:slide>{@html offer.description[0]}</p>
+						{/if}
+					</button>
 				{:else if (i === 2 || i === 3) && isVisibleGoldPlan}
-					{#each Array(1) as _, j}
-						<button
-							id={`plan-group-${i}-${j}`}
-							on:click={() => showDescription(`gold-${i}-${j}`)}
-							transition:scale
-						>
-							<div>
-								<img src={offerIcons[i]} alt={offer.title} />
-								<h2>{offer.title}</h2>
-							</div>
-							{#if descriptions[`gold-${i}-${j}`]}
-								<p transition:slide>
-									{@html offer.description[0]}
-									<span class="description-tiny-text">{offer.description[1]}</span>
-								</p>
-							{/if}
-						</button>
-					{/each}
+					<button
+						id={`plan-group-${i}`}
+						on:click={() => showDescription(`gold-${i}`)}
+						transition:scale
+					>
+						<div>
+							<img src={offerIcons[i]} alt={offer.title} />
+							<h2>{offer.title}</h2>
+						</div>
+						{#if descriptions[`gold-${i}`]}
+							<p transition:slide>
+								{@html offer.description[0]}
+								<span class="description-tiny-text">{offer.description[1]}</span>
+							</p>
+						{/if}
+					</button>
 				{:else if (i === 4 || i === 5) && isVisiblePlatinumPlan}
-					{#each Array(1) as _, j}
-						<button
-							id={`plan-group-${i}-${j}`}
-							on:click={() => showDescription(`platinum-${i}-${j}`)}
-							transition:scale
-						>
-							<div>
-								<img src={offerIcons[i]} alt={offer.title} />
-								<h2>{offer.title}</h2>
-							</div>
-							{#if descriptions[`platinum-${i}-${j}`]}
-								<p transition:slide>
-									{@html offer.description[0]}
-									<span class="description-tiny-text">{offer.description[1]}</span>
-								</p>
-							{/if}
-						</button>
-					{/each}
+					<button
+						id={`plan-group-${i}`}
+						on:click={() => showDescription(`platinum-${i}`)}
+						transition:scale
+					>
+						<div>
+							<img src={offerIcons[i]} alt={offer.title} />
+							<h2>{offer.title}</h2>
+						</div>
+						{#if descriptions[`platinum-${i}`]}
+							<p transition:slide>
+								{@html offer.description[0]}
+								<span class="description-tiny-text">{offer.description[1]}</span>
+							</p>
+						{/if}
+					</button>
 				{/if}
 			{/each}
 		</div>
