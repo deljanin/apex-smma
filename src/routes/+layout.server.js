@@ -10,7 +10,11 @@ export function load({ url }) {
 			break;
 		case '/en':
 			break;
+		// case '/en/terms-and-conditions':
+		// 	break;
+		// case '/en/privacy-policy':
+		// 	break;
 		default:
-			throw error(404, 'Page not found! <a href="/" style="color: #fff">Go back to home page?</a>');
+			throw error(404, 'Page not found!');
 	}
 }

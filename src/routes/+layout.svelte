@@ -67,7 +67,7 @@
 			</a>
 			{#if toggleMenu}
 				<ul transition:slide>
-					{#if $page.url.pathname === '/terms_and_conditions' || $page.url.pathname === '/privacy_policy'}
+					{#if $page.url.pathname === '/terms-and-conditions' || $page.url.pathname === '/privacy-policy'}
 						{#each $txt.navbarAlt as link}
 							<li><a href={link.link}>{link.text}</a></li>
 						{/each}

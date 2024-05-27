@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>%sveltekit.error.message%</title>
+		<style>
+			@font-face {
+				font-family: 'K2D';
+				font-style: normal;
+				font-weight: 400;
+				src: url('/fonts/K2D/K2D-Regular.ttf') format('truetype');
+			}
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: K2D;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+				background-color: #101010;
+				color: #ffffff;
+			}
+
+			h1 {
+				font-size: 5rem;
+				animation: glitch 1s linear infinite;
+			}
+
+			@keyframes glitch {
+				2%,
+				64% {
+					transform: translate(2px, 0) skew(0deg);
+				}
+				4%,
+				60% {
+					transform: translate(-2px, 0) skew(0deg);
+				}
+				62% {
+					transform: translate(0, 0) skew(5deg);
+				}
+			}
+
+			h1:before,
+			h1:after {
+				content: attr(title);
+				position: absolute;
+				left: 0;
+			}
+
+			h1:before {
+				animation: glitchTop 1s linear infinite;
+				clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+				-webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+			}
+
+			@keyframes glitchTop {
+				2%,
+				64% {
+					transform: translate(2px, -2px);
+				}
+				4%,
+				60% {
+					transform: translate(-2px, 2px);
+				}
+				62% {
+					transform: translate(13px, -1px) skew(-13deg);
+				}
+			}
+
+			h1:after {
+				animation: glitchBotom 1.5s linear infinite;
+				clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+				-webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+			}
+
+			@keyframes glitchBotom {
+				2%,
+				64% {
+					transform: translate(-2px, 0);
+				}
+				4%,
+				60% {
+					transform: translate(-2px, 0);
+				}
+				62% {
+					transform: translate(-22px, 5px) skew(21deg);
+				}
+			}
+			a {
+				font-weight: bold;
+				font-size: 2rem;
+				color: #ffffff;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 title="%sveltekit.status% | %sveltekit.error.message%">
+			%sveltekit.status% | %sveltekit.error.message%
+		</h1>
+		<a href="/">Go back to home page?</a>
+	</body>
+</html>
