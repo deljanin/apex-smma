@@ -103,7 +103,6 @@
 		"submit": { "key": "submit", "placeholder": "Pošalji poruku" }
 	},
 	"footer": {
-		"input": "your@email.com",
 		"ppolicy": "Privacy Policy",
 		"terms": "Terms & Conditions",
 		"rights": "@2024 Apex SMMA All Right Reserved"
