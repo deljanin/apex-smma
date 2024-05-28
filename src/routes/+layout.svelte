@@ -58,6 +58,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{$txt.title}</title>
+	<meta name="description" content={$txt.landing.heading2.replace('^', ' ')} />
+</svelte:head>
 <svelte:window bind:scrollY={y} bind:innerWidth />
 {#if visible}
 	<nav class:navSticky class:navAnimate>
@@ -65,15 +69,24 @@
 			<a class="logo" href={language === 'en' ? '/en' : '/sr'}>
 				<img src={logoDark} alt="Logo" />
 			</a>
+
 			{#if toggleMenu}
-				<ul transition:slide>
+				<ul transition:slide={{ axis: 'x' }}>
 					{#if $page.url.pathname === '/terms-and-conditions' || $page.url.pathname === '/privacy-policy'}
 						{#each $txt.navbarAlt as link}
 							<li><a href={link.link}>{link.text}</a></li>
 						{/each}
 					{:else}
 						{#each $txt.navbar as link}
-							<li><a href={link.link} on:click={handleAnchorClick}>{link.text}</a></li>
+							<li>
+								<a
+									href={link.link}
+									on:click={handleAnchorClick}
+									on:click={() => {
+										toggleMenu = !toggleMenu;
+									}}>{link.text}</a
+								>
+							</li>
 						{/each}
 					{/if}
 				</ul>
@@ -83,7 +96,6 @@
 					<img src={langIcon} alt="Language change button" />
 				</a>
 				{#if innerWidth < 701}
-					<!-- Ova vrednost je 701 zbog dropdowna koji ne postoji na sirini od 700px inace -->
 					<div class="menuButton">
 						<input
 							type="checkbox"
@@ -92,11 +104,12 @@
 								toggleMenu = !toggleMenu;
 								toggleBorder = !toggleBorder;
 							}}
+							bind:checked={toggleMenu}
 						/>
 						<label for="checkbox" class="toggle">
-							<div class="bar bar--top"></div>
-							<div class="bar bar--middle"></div>
-							<div class="bar bar--bottom"></div>
+							<div class="bar bar-top"></div>
+							<div class="bar bar-middle"></div>
+							<div class="bar bar-bottom"></div>
 						</label>
 					</div>
 				{/if}
@@ -286,37 +299,37 @@
 
 	/***** Spin Animation *****/
 
-	.bar--top {
+	.bar-top {
 		bottom: calc(50% + 11px + 4px / 2);
 		transition-property: bottom, transform;
 		transition-delay: calc(0s + 0.35s), 0s;
 	}
 
-	.bar--middle {
+	.bar-middle {
 		top: calc(50% - 4px / 2);
 		transition-property: opacity;
 		transition-delay: calc(0s + 0.35s);
 	}
 
-	.bar--bottom {
+	.bar-bottom {
 		top: calc(50% + 11px + 4px / 2);
 		transition-property: top, transform;
 		transition-delay: calc(0s + 0.35s), 0s;
 	}
 
-	#checkbox:checked + .toggle .bar--top {
+	#checkbox:checked + .toggle .bar-top {
 		bottom: calc(50% - 4px / 2);
 		transform: rotate(135deg);
 		transition-delay: 0s, calc(0s + 0.35s);
 	}
 
-	#checkbox:checked + .toggle .bar--middle {
+	#checkbox:checked + .toggle .bar-middle {
 		opacity: 0;
 		transition-duration: 0s;
 		transition-delay: calc(0s + 0.35s);
 	}
 
-	#checkbox:checked + .toggle .bar--bottom {
+	#checkbox:checked + .toggle .bar-bottom {
 		top: calc(50% - 4px / 2);
 		transform: rotate(225deg);
 		transition-delay: 0s, calc(0s + 0.35s);
@@ -324,16 +337,22 @@
 	/* Navbar only! */
 	@media only screen and (max-width: 700px) {
 		ul {
-			position: absolute;
+			position: fixed;
 			right: 0;
-			max-width: 30vw;
-			bottom: -30vh;
-			height: 30vh;
-			background-color: var(--nav-transparent);
+			left: 0;
+			width: 100%;
+			top: 50vh;
+			height: 50vh;
+			background-color: #585858;
+			z-index: 15;
 			display: flex;
 			flex-direction: column;
-			border-bottom-left-radius: 25px;
-			border-bottom-right-radius: 25px;
+			border-top-left-radius: 25px;
+			border-top-right-radius: 25px;
+			padding-bottom: 10vh;
+		}
+		li > a {
+			color: var(--secondary-color);
 		}
 
 		.menuButton {

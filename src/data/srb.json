@@ -1,4 +1,5 @@
 {
+	"title": "Apex marketing agencija",
 	"navbar": [
 		{ "text": "Početna", "link": "#landing" },
 		{ "text": "Usluge", "link": "#services" },
@@ -110,7 +111,7 @@
 	"modal": {
 		"success": {
 			"heading": "Poruka poslata",
-			"text": "Hvala Vam što nas kontaktirate. Uskoro ćete dobiti email sa sledećim koracima."
+			"text": "Hvala Vam što ste nas kontaktirali. Javićemo Vam se u najkraćem roku."
 		},
 		"fail": {
 			"heading": "Poruka nije poslata :(",
