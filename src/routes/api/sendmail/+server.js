@@ -1,7 +1,7 @@
 import { MailerSend, EmailParams, Sender, Recipient } from 'mailersend';
-import { EMAIL_API_KEY } from '$env/dynamic/private';
+
 const mailerSend = new MailerSend({
-	apiKey: EMAIL_API_KEY
+	apiKey: process.env.EMAIL_API_KEY
 });
 
 const sentFrom = new Sender('contact@apex-smma.com', 'Apex SMMA');
