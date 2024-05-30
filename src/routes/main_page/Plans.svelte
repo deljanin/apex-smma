@@ -280,7 +280,7 @@
 		gap: 2vh;
 	}
 	.plans-static > button {
-		width: 30vw;
+		width: 40vw;
 		cursor: pointer;
 		user-select: none;
 	}
@@ -311,6 +311,7 @@
 	h2 {
 		width: 100%;
 		font-family: K2D;
+		font-size: clamp(1.5rem, 1rem + 1vw, 3rem);
 	}
 
 	.plan-circle {
