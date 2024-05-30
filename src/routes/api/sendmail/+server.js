@@ -4,6 +4,9 @@ sgMail.setApiKey(process.env.SENDGRIDAPIKEY);
 export const POST = async ({ request }) => {
 	const body = await request.json();
 	if (!body.extraText) {
+		if (body.extraText == '' || body.extraText == null) {
+			return new Response({ status: 403 });
+		}
 		let mailHtml = '<ul>';
 		for (var key in body) {
 			mailHtml += `<li>${key}:  ${body[key]}</li>`;
