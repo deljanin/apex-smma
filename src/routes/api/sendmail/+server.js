@@ -1,5 +1,5 @@
 import { MailerSend, EmailParams, Sender, Recipient } from 'mailersend';
-import { EMAIL_API_KEY } from '$env/static/private';
+import { EMAIL_API_KEY } from '$env/dynamic/private';
 const mailerSend = new MailerSend({
 	apiKey: EMAIL_API_KEY
 });
