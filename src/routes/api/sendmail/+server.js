@@ -1,24 +1,33 @@
-import sgMail from '@sendgrid/mail';
-sgMail.setApiKey(process.env.SENDGRIDAPIKEY);
+import { MailerSend, EmailParams, Sender, Recipient } from 'mailersend';
+import { EMAIL_API_KEY } from '$env/static/private';
+const mailerSend = new MailerSend({
+	apiKey: EMAIL_API_KEY
+});
+
+const sentFrom = new Sender('contact@apex-smma.com', 'Apex SMMA');
+
+const recipients = [new Recipient('contact@apex-smma.com', 'Apex SMMA')];
+
+let emailParams;
 
 export const POST = async ({ request }) => {
 	const body = await request.json();
 	if (body.extraText != '' || !body.extraText) {
-		console.log(body.extraText);
-		let mailHtml = '<ul>';
+		let mailHtml = '<table>';
 		for (var key in body) {
-			mailHtml += `<li>${key}:  ${body[key]}</li>`;
+			mailHtml += `<tr><td>${key}</td><td>${body[key]}</td></tr>`;
 		}
-		mailHtml += '</ul>';
+		mailHtml += '</table>';
 
-		const msg = {
-			to: 'pecadeljanin@gmail.com',
-			from: 'petar@deljanin.dev',
-			subject: 'Kontak forma websajt',
-			html: mailHtml
-		};
+		emailParams = new EmailParams()
+			.setFrom(sentFrom)
+			.setTo(recipients)
+			.setReplyTo(sentFrom)
+			.setSubject('Contact form apex-smma.com')
+			.setHtml(mailHtml)
+			.setText(body.toString());
 		try {
-			await sgMail.send(msg);
+			await mailerSend.email.send(emailParams);
 			return new Response({ status: 200 });
 		} catch (error) {
 			console.error(error);
