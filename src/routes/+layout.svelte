@@ -21,6 +21,11 @@
 	import { page } from '$app/stores';
 
 	$: language = $page.params.slug;
+	$: {
+		if (typeof document !== 'undefined') {
+			document.documentElement.setAttribute('lang', language);
+		}
+	}
 	$: txt.set(languageData[language]);
 
 	let y = 0;
