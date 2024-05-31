@@ -1,6 +1,8 @@
 <script>
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	import { inject } from '@vercel/analytics';
 	injectSpeedInsights();
+	inject();
 
 	import { slide } from 'svelte/transition';
 	// import { onMount } from 'svelte';
