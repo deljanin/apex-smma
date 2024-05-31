@@ -43,7 +43,7 @@
 			<h2>{modalHeading}</h2>
 			<p>{modalText}</p>
 			<button
-				on:click={() => {
+				on:mousedown={() => {
 					modalOpen = false;
 				}}
 			>

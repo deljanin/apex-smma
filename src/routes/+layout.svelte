@@ -81,8 +81,8 @@
 							<li>
 								<a
 									href={link.link}
-									on:click={handleAnchorClick}
-									on:click={() => {
+									on:mousedown={handleAnchorClick}
+									on:mousedown={() => {
 										toggleMenu = !toggleMenu;
 									}}>{link.text}</a
 								>
@@ -100,7 +100,7 @@
 						<input
 							type="checkbox"
 							id="checkbox"
-							on:click={() => {
+							on:mousedown={() => {
 								toggleMenu = !toggleMenu;
 								toggleBorder = !toggleBorder;
 							}}

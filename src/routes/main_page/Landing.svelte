@@ -42,7 +42,7 @@
 			</h2>
 		</SmoothAppear>
 
-		<a href="#contact" on:click={handleAnchorClick}>
+		<a href="#contact" on:mousedown={handleAnchorClick}>
 			<button>
 				<span class="text">{$txt.landing.buttonText}</span>
 				<span class="effect"></span></button

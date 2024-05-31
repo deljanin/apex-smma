@@ -119,7 +119,7 @@
 				{#if (i === 0 || i === 1) && isVisibleSilverPlan}
 					<button
 						id={`plan-group-${i}`}
-						on:click={() => showDescription(`silver-${i}`)}
+						on:mousedown={() => showDescription(`silver-${i}`)}
 						transition:scale
 					>
 						<div>
@@ -133,7 +133,7 @@
 				{:else if (i === 2 || i === 3) && isVisibleGoldPlan}
 					<button
 						id={`plan-group-${i}`}
-						on:click={() => showDescription(`gold-${i}`)}
+						on:mousedown={() => showDescription(`gold-${i}`)}
 						transition:scale
 					>
 						<div>
@@ -150,7 +150,7 @@
 				{:else if (i === 4 || i === 5) && isVisiblePlatinumPlan}
 					<button
 						id={`plan-group-${i}`}
-						on:click={() => showDescription(`platinum-${i}`)}
+						on:mousedown={() => showDescription(`platinum-${i}`)}
 						transition:scale
 					>
 						<div>
@@ -181,7 +181,7 @@
 						{#if i === 0 && [0, 1].includes(j)}
 							<button
 								id={`plan-group-${i}-${j}`}
-								on:click={() => showDescription(`mobile-silver-${i}-${j}`)}
+								on:mousedown={() => showDescription(`mobile-silver-${i}-${j}`)}
 								transition:scale
 							>
 								<div class="mobile-offer">
@@ -195,7 +195,7 @@
 						{:else if i === 1 && [0, 1, 2, 3].includes(j)}
 							<button
 								id={`plan-group-${i}-${j}`}
-								on:click={() => showDescription(`mobile-gold-${i}-${j}`)}
+								on:mousedown={() => showDescription(`mobile-gold-${i}-${j}`)}
 								transition:scale
 							>
 								<div class="mobile-offer">
@@ -209,7 +209,7 @@
 						{:else if i === 2}
 							<button
 								id={`plan-group-${i}-${j}`}
-								on:click={() => showDescription(`mobile-platinum-${i}-${j}`)}
+								on:mousedown={() => showDescription(`mobile-platinum-${i}-${j}`)}
 								transition:scale
 							>
 								<div class="mobile-offer">

@@ -67,7 +67,7 @@
 		mouse.x = e.x;
 		mouse.y = e.y;
 	}}
-	on:click={() => {
+	on:mousedown={() => {
 		if (!animationInProgress) {
 			animationInProgress = true;
 
