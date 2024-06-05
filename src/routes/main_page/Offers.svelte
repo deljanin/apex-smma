@@ -26,7 +26,7 @@
 			{#each $txt.whatWeOffer.cards as card, i}
 				<div class="group">
 					<div class={`vertical-line l${i}`}></div>
-					<a href={links[i]} on:mousedown={handleAnchorClickCenter}>
+					<a href={links[i]} on:click={handleAnchorClickCenter}>
 						<div class="card">
 							<div><img src={icons[i]} alt={card.frontText} /></div>
 							<span class="powerText frontText">{card.frontText}</span>
