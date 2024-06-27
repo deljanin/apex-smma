@@ -86,13 +86,7 @@
 					{:else}
 						{#each $txt.navbar as link}
 							<li>
-								<a
-									href={link.link}
-									on:mousedown={handleAnchorClick}
-									on:mousedown={() => {
-										toggleMenu = !toggleMenu;
-									}}>{link.text}</a
-								>
+								<a href={link.link} on:click={handleAnchorClick}>{link.text}</a>
 							</li>
 						{/each}
 					{/if}
