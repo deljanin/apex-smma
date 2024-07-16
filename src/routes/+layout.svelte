@@ -3,9 +3,10 @@
 	import { inject } from '@vercel/analytics';
 	injectSpeedInsights();
 	inject();
+	import Lenis from 'lenis';
 
 	import { slide } from 'svelte/transition';
-	// import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 
 	import { handleAnchorClick } from '$lib/utils/smoothScroll.js';
@@ -22,6 +23,24 @@
 	import { txt } from '$lib/utils/context.js';
 	import { page } from '$app/stores';
 
+	//Smooth scroll
+	onMount(() => {
+		const lenis = new Lenis();
+
+		lenis.on('scroll', (e) => {
+			console.log(e);
+		});
+
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+
+		requestAnimationFrame(raf);
+	});
+	// /Smooth scroll
+
+	// Language change
 	$: language = $page.params.slug;
 	$: {
 		if (typeof document !== 'undefined') {
@@ -29,11 +48,13 @@
 		}
 	}
 	$: txt.set(languageData[language]);
-
+	// /Language change
+	// Navbar
 	let y = 0;
 	let navSticky;
 	let innerWidth;
 	let navAnimate = false;
+	let navQuickAnimate = false;
 
 	$: if (y < 25 && innerWidth > 700) {
 		navSticky = false;
@@ -53,6 +74,7 @@
 		toggleMenu = false;
 	}
 	let visible = false;
+
 	// onMount(() => {
 	// let browserLanguage = window.navigator.language;
 	// console.log(browserLanguage);
@@ -63,6 +85,11 @@
 			visible = true;
 		}
 	});
+
+	$: if (y > 25) {
+		navQuickAnimate = true;
+	}
+	// </Navbar>
 </script>
 
 <svelte:head>
@@ -71,72 +98,74 @@
 </svelte:head>
 <svelte:window bind:scrollY={y} bind:innerWidth />
 {#if visible}
-	<nav class:navSticky class:navAnimate>
-		<div class:toggleBorder>
-			<a class="logo" href={language === 'en' ? '/en' : '/sr'}>
-				<img src={logoDark} alt="Logo" />
-			</a>
-
-			{#if toggleMenu}
-				<ul transition:slide={{ axis: 'x' }}>
-					{#if $page.url.pathname === '/terms-and-conditions' || $page.url.pathname === '/privacy-policy'}
-						{#each $txt.navbarAlt as link}
-							<li><a href={link.link}>{link.text}</a></li>
-						{/each}
-					{:else}
-						{#each $txt.navbar as link}
-							<li>
-								<a href={link.link} on:click={handleAnchorClick}>{link.text}</a>
-							</li>
-						{/each}
-					{/if}
-				</ul>
-			{/if}
-			<div>
-				<a class="langauge" href={language === 'en' ? '/sr' : '/en'}>
-					<img src={langIcon} alt="Language change button" />
+	<div>
+		<nav class:navSticky class:navAnimate>
+			<div class:toggleBorder class:navQuickAnimate>
+				<a class="logo" href={language === 'en' ? '/en' : '/sr'}>
+					<img src={logoDark} alt="Logo" />
 				</a>
-				{#if innerWidth < 701}
-					<div class="menuButton">
-						<input
-							type="checkbox"
-							id="checkbox"
-							on:mousedown={() => {
-								toggleMenu = !toggleMenu;
-								toggleBorder = !toggleBorder;
-							}}
-							bind:checked={toggleMenu}
-						/>
-						<label for="checkbox" class="toggle">
-							<div class="bar bar-top"></div>
-							<div class="bar bar-middle"></div>
-							<div class="bar bar-bottom"></div>
-						</label>
-					</div>
+
+				{#if toggleMenu}
+					<ul transition:slide={{ axis: 'x' }}>
+						{#if $page.url.pathname === '/terms-and-conditions' || $page.url.pathname === '/privacy-policy'}
+							{#each $txt.navbarAlt as link}
+								<li><a href={link.link}>{link.text}</a></li>
+							{/each}
+						{:else}
+							{#each $txt.navbar as link}
+								<li>
+									<a href={link.link} on:click={handleAnchorClick}>{link.text}</a>
+								</li>
+							{/each}
+						{/if}
+					</ul>
 				{/if}
+				<div>
+					<a class="langauge" href={language === 'en' ? '/sr' : '/en'}>
+						<img src={langIcon} alt="Language change button" />
+					</a>
+					{#if innerWidth < 701}
+						<div class="menuButton">
+							<input
+								type="checkbox"
+								id="checkbox"
+								on:mousedown={() => {
+									toggleMenu = !toggleMenu;
+									toggleBorder = !toggleBorder;
+								}}
+								bind:checked={toggleMenu}
+							/>
+							<label for="checkbox" class="toggle">
+								<div class="bar bar-top"></div>
+								<div class="bar bar-middle"></div>
+								<div class="bar bar-bottom"></div>
+							</label>
+						</div>
+					{/if}
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 
-	<slot />
+		<slot />
 
-	<div class="footer">
-		<div>
+		<div class="footer">
 			<div>
-				<InstagramIcon />
-				<TelegramIcon />
-				<FacebookIcon />
-				<LinkedInIcon />
-				<XIcon />
-			</div>
-			<!-- <a href="/privacy_policy"> -->
-			<span>{$txt.footer.ppolicy}</span>
-			<!-- </a> -->
-			<!-- <a href="/terms_and_conditions"> -->
-			<span>{$txt.footer.terms}</span>
-			<!-- </a> -->
+				<div>
+					<InstagramIcon />
+					<TelegramIcon />
+					<FacebookIcon />
+					<LinkedInIcon />
+					<XIcon />
+				</div>
+				<!-- <a href="/privacy_policy"> -->
+				<span>{$txt.footer.ppolicy}</span>
+				<!-- </a> -->
+				<!-- <a href="/terms_and_conditions"> -->
+				<span>{$txt.footer.terms}</span>
+				<!-- </a> -->
 
-			{$txt.footer.rights}
+				{$txt.footer.rights}
+			</div>
 		</div>
 	</div>
 {/if}
@@ -145,6 +174,10 @@
 	.navAnimate {
 		opacity: 0;
 		animation: navbarAnimation 1s 6s forwards;
+	}
+	.navQuickAnimate {
+		opacity: 0;
+		animation: navbarAnimation 0.4s 0s forwards;
 	}
 	.navSticky {
 		position: fixed;
@@ -185,7 +218,6 @@
 		backdrop-filter: blur(15px);
 		transition: all 0.4s;
 		opacity: 0;
-		animation: navbarAnimation 1s 6s forwards;
 	}
 	@keyframes navbarAnimation {
 		from {
@@ -335,6 +367,7 @@
 		transform: rotate(225deg);
 		transition-delay: 0s, calc(0s + 0.35s);
 	}
+
 	/* Navbar only! */
 	@media only screen and (max-width: 700px) {
 		ul {
