@@ -218,6 +218,7 @@
 		backdrop-filter: blur(15px);
 		transition: all 0.4s;
 		opacity: 0;
+		animation: navbarAnimation 1s 6s forwards;
 	}
 	@keyframes navbarAnimation {
 		from {
